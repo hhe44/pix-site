@@ -5,20 +5,21 @@ module.exports = {
 		extend: {}
 	},
 	daisyui: {
-		themes: [ 
+		themes: [
 			{
 				light: {
-					primary: '#ffe4e6',
-					secondary: '#26af7d',
-					accent: '#286de2',
-					neutral: '#bfdbfe',
-					'base-100': '#FFF',
-					info: '#68A6E8',
-					success: '#63E3A3',
-					warning: '#F6C531',
-					error: '#E74078'
+					primary: '#6419E6',
+					secondary: '#D926A9',
+					accent: '#1FB2A6',
+					neutral: '#191D24',
+					'base-100': '#f3f4f6',
+					info: '#3ABFF8',
+					success: '#36D399',
+					warning: '#FBBD23',
+					error: '#F87272'
 				}
-			}, 'dark'
+			},
+			'dark'
 		]
 	},
 	plugins: [require('daisyui')]
