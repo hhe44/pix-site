@@ -1,7 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
-  import Navbar from './Navbar.svelte';
+	import Navbar from './Navbar.svelte';
+	import Hero from './Hero.svelte';
 
 	// NOTE: the element that is using one of the theme attributes must be in the DOM on mount
 	onMount(() => {
@@ -10,7 +11,10 @@
 	});
 </script>
 
-<Navbar itemCount={0}/>
+<Navbar itemCount={0} />
+<Hero />
+
+
 
 <style global lang="postcss">
 	@tailwind base;
