@@ -9,4 +9,14 @@
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
+
+	/* Override daisyUI's CSS below: */
+	.select:focus {
+		outline: none;
+	}
+
+	.table th {
+		background-color: transparent
+	}
+
 </style>

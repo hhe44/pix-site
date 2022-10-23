@@ -2,7 +2,7 @@
   let itemCount = 0;
 </script>
 
-<div class="navbar bg-base-100">
+<div class="navbar bg-transparent">
 	<div class="navbar-start">
 		<a href="/" class="btn btn-ghost text-neutral">LOGO</a>
 	</div>
