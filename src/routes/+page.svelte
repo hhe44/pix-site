@@ -3,7 +3,7 @@
 </script>
 
 <Hero />
-<div class="space-y-4">
+<div class="pb-8">
 
 	<div class="flex flex-col md:flex-row md:justify-evenly items-center mt-4 space-y-4 md:space-y-0">
 		<h3 class="text-2xl font-bold">Most Popular Collections</h3>
@@ -18,22 +18,139 @@
 	</div>
 
 	<div class="overflow-x-auto">
-		<table class="table w-full mt-4">
+		<table class="table w-full mt-2">
 			<!-- head -->
-			<thead class="text-gray-500">
+			<thead class="text-gray-400">
 				<tr>
-					<th>Collection</th>
-					<th class="text-end">Volume</th>
+					<th class="text-base">Collection</th>
+					<th class="text-base text-end">Volume</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!-- row 1 -->
 				<tr>
-					<td class="font-medium">Cy Ganderton</td>
+					<td>
+						<div class="flex items-center space-x-3">
+							<div class="avatar">
+								<div class="mask mask-square rounded-md w-12 h-12">
+									<img src="https://placeimg.com/160/160/any" alt="NFT1" />
+								</div>
+							</div>
+							<div>
+								<div class="font-bold">NFT1</div>
+							</div>
+						</div>
+					</td>
+					<td class="text-end font-medium">123</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center space-x-3">
+							<div class="avatar">
+								<div class="mask mask-square rounded-md w-12 h-12">
+									<img src="https://placeimg.com/160/160/any" alt="NFT1" />
+								</div>
+							</div>
+							<div>
+								<div class="font-bold">NFT2</div>
+							</div>
+						</div>
+					</td>
+					<td class="text-end font-medium">123</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center space-x-3">
+							<div class="avatar">
+								<div class="mask mask-square rounded-md w-12 h-12">
+									<img src="https://placeimg.com/160/160/any" alt="NFT1" />
+								</div>
+							</div>
+							<div>
+								<div class="font-bold">NFT3</div>
+							</div>
+						</div>
+					</td>
 					<td class="text-end font-medium">123</td>
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	<div class="text-center">
+		<h5 class="text-med font-bold">View All Collections ❯</h5>
+	</div>
+
+	<div class="flex flex-col items-center align-center mt-8">
+		<h3 class="text-2xl font-bold">Upcoming Drops</h3>
+		<div class="w-4/5 carousel rounded-box mt-2">
+			<div id="slide1" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slide4" class="btn btn-ghost">❮</a> 
+					<a href="#slide2" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slide2" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slide1" class="btn btn-ghost">❮</a> 
+					<a href="#slide3" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slide3" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slide2" class="btn btn-ghost">❮</a> 
+					<a href="#slide4" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slide4" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slide3" class="btn btn-ghost">❮</a> 
+					<a href="#slide1" class="btn btn-ghost">❯</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<h5 class="mt-2 text-med font-bold">View All Drops ❯</h5>
+	</div>
+
+	<div class="flex flex-col items-center align-center mt-8">
+		<h3 class="text-2xl font-bold">New Mints</h3>
+		<div class="w-4/5 carousel rounded-box mt-2">
+			<div id="slideA1" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slideA4" class="btn btn-ghost">❮</a> 
+					<a href="#slideA2" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slideA2" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slideA1" class="btn btn-ghost">❮</a> 
+					<a href="#slideA3" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slideA3" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slideA2" class="btn btn-ghost">❮</a> 
+					<a href="#slideA4" class="btn btn-ghost">❯</a>
+				</div>
+			</div> 
+			<div id="slideA4" class="carousel-item relative w-full">
+				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
+				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<a href="#slideA3" class="btn btn-ghost">❮</a> 
+					<a href="#slideA1" class="btn btn-ghost">❯</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<h5 class="mt-2 text-med font-bold">View All Mints ❯</h5>
 	</div>
 
 </div>
