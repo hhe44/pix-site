@@ -3,7 +3,7 @@
 </script>
 
 <Navbar itemCount={0} />
-<slot></slot>
+<slot />
 
 <style global lang="postcss">
 	@tailwind base;
@@ -16,7 +16,6 @@
 	}
 
 	.table th {
-		background-color: transparent
+		background-color: transparent;
 	}
-
 </style>

@@ -81,33 +81,31 @@
 
 	<div class="flex flex-col items-center align-center mt-8">
 		<h3 class="text-2xl font-bold">Upcoming Drops</h3>
-		<div class="w-4/5 carousel rounded-box mt-2">
+		<div class="w-4/5 carousel carousel-center rounded-box mt-2" data-target="#myCarousel">
 			<div id="slide1" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slide4" class="btn btn-ghost">❮</a> 
-					<a href="#slide2" class="btn btn-ghost">❯</a>
+				<div class="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slide2" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
 				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slide1" class="btn btn-ghost">❮</a> 
-					<a href="#slide3" class="btn btn-ghost">❯</a>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slide3" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
 				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slide2" class="btn btn-ghost">❮</a> 
-					<a href="#slide4" class="btn btn-ghost">❯</a>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slide4" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slide3" class="btn btn-ghost">❮</a> 
-					<a href="#slide1" class="btn btn-ghost">❯</a>
+				<div class="absolute flex justify-start transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
 				</div>
 			</div>
 		</div>
@@ -121,30 +119,29 @@
 		<div class="w-4/5 carousel rounded-box mt-2">
 			<div id="slideA1" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slideA4" class="btn btn-ghost">❮</a> 
-					<a href="#slideA2" class="btn btn-ghost">❯</a>
+				<div class="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slideA2" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
 				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slideA1" class="btn btn-ghost">❮</a> 
-					<a href="#slideA3" class="btn btn-ghost">❯</a>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slideA3" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
 				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slideA2" class="btn btn-ghost">❮</a> 
-					<a href="#slideA4" class="btn btn-ghost">❯</a>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❯</div>
 				</div>
 			</div> 
 			<div id="slideA4" class="carousel-item relative w-full">
 				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<a href="#slideA3" class="btn btn-ghost">❮</a> 
-					<a href="#slideA1" class="btn btn-ghost">❯</a>
+				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
+				<div class="absolute flex justify-start transform -translate-y-1/2 left-5 right-5 top-1/2">
+					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300 rounded-md">❮</div>
 				</div>
 			</div>
 		</div>
