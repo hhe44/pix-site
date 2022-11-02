@@ -2,6 +2,9 @@
 module.exports = {
 	content: ['./src/**/*.{html,js,ts,svelte}'],
 	theme: {
+		fontFamily: {
+			sans: ['"Inter"', 'sans-serif']
+		},
 		extend: {}
 	},
 	daisyui: {
