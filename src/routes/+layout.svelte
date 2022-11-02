@@ -11,6 +11,14 @@
 	@tailwind utilities;
 
 	/* Override daisyUI's CSS below: */
+	.btn, .select {
+		border-radius: 0px;
+	}
+
+	.btn-circle {
+		border-radius: 9999px;
+	}
+
 	.select:focus {
 		outline: none;
 	}

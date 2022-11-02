@@ -11,7 +11,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
     </button>
 		<!-- svelte-ignore a11y-label-has-associated-control -->
-		<label role="button" tabindex="0" class="btn btn-ghost btn-circle">
+		<label role="button" tabindex="0" class="btn btn-ghost btn-circle ml-2">
 			<div class="indicator">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@
 				<span class="badge badge-sm indicator-item">{itemCount}</span>
 			</div>
 		</label>
-		<button class="btn btn-square btn-ghost">
+		<button class="btn btn-square btn-ghost ml-2">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
