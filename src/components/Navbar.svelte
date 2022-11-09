@@ -4,12 +4,12 @@
 </script>
 
 <div class="navbar bg-transparent">
-	<div class="navbar-start">
+	<div class="navbar-start lg:pl-8">
 		<a href="/" class="btn btn-ghost rounded mr-4">LOGO</a>
 		<input type="text" placeholder="&#x1F50E;&#xFE0E; Search" class="hidden lg:block input input-ghost focus:outline-0"/>
 	</div>
 	<div class="navbar-center hidden sm:block">
-		<ul class="menu menu-horizontal">
+		<ul class="menu menu-horizontal lg:space-x-2 text-sm font-bold">
       <li><a href="/">Discover</a></li>
 			<li><a href="/">Create</a></li>
 			<li><a href="/">Drops</a></li>

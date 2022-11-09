@@ -1,4 +1,4 @@
-<div class="hero  h-[calc(100vh_-_4rem)]" style="background-image: url(https://placeimg.com/1000/800/arch);">
+<div class="hero h-screen max-h-hero" style="background-image: url(https://placeimg.com/1000/800/arch);">
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
 		<div class="max-w-md text-base-100">
