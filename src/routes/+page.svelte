@@ -166,6 +166,20 @@
 		border-radius: 9999px;
 	}
 
+	.menu-horizontal li a:active {
+		background-color: transparent;
+		color: #191D24;
+	}
+
+	.outline-none {
+		outline: none;
+	}
+
+	.menu-horizontal li a:hover {
+		background-color: transparent;
+		opacity: 0.7;
+	}
+
 	.select:focus {
 		outline: none;
 	}

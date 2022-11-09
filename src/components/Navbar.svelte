@@ -1,17 +1,26 @@
-<script>
-  let itemCount = 0;
+<script lang="ts">
+	export let accountId: string = "0.0.000000";
+  export let itemCount: number = 0;
 </script>
 
 <div class="navbar bg-transparent">
 	<div class="navbar-start">
-		<a href="/" class="btn btn-ghost text-neutral">LOGO</a>
+		<a href="/" class="btn btn-ghost rounded mr-4">LOGO</a>
+		<input type="text" placeholder="&#x1F50E;&#xFE0E; Search" class="hidden lg:block input input-ghost focus:outline-0"/>
+	</div>
+	<div class="navbar-center hidden sm:block">
+		<ul class="menu menu-horizontal">
+      <li><a href="/">Discover</a></li>
+			<li><a href="/">Create</a></li>
+			<li><a href="/">Drops</a></li>
+			<li><a href="/">Stats</a></li>
+    </ul>
 	</div>
 	<div class="navbar-end">
-    <button class="btn btn-ghost btn-circle">
+    <button class="btn btn-ghost btn-circle lg:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
     </button>
-		<!-- svelte-ignore a11y-label-has-associated-control -->
-		<label role="button" tabindex="0" class="btn btn-ghost btn-circle ml-2">
+		<button class="btn btn-ghost btn-circle ml-2">
 			<div class="indicator">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -29,21 +38,31 @@
 				>
 				<span class="badge badge-sm indicator-item">{itemCount}</span>
 			</div>
-		</label>
-		<button class="btn btn-square btn-ghost ml-2">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				class="inline-block w-5 h-5 stroke-neutral"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 6h16M4 12h16M4 18h16"
-				/>
-			</svg>
 		</button>
+		<p class="hidden md:block text-sm font-bold mx-4">{accountId}</p>
+		<div class="dropdown dropdown-end sm:hidden">
+			<button class="btn btn-square btn-ghost ml-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="inline-block w-5 h-5 stroke-neutral"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"
+					/>
+				</svg>
+			</button>
+			<ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
+				<p class="hidden md:block text-sm font-bold mx-4">{accountId}</p>
+				<li><a href="/">Discover</a></li>
+				<li><a href="/">Create</a></li>
+				<li><a href="/">Drops</a></li>
+				<li><a href="/">Stats</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
