@@ -5,9 +5,6 @@ module.exports = {
 		fontFamily: {
 			sans: ['"Inter"', 'sans-serif']
 		},
-		maxHeight: {
-			'hero': '60vh'
-		},
 		extend: {}
 	},
 	daisyui: {
