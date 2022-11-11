@@ -5,7 +5,7 @@
 	export let collections: Collection[] = [];
 
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
-	const sortBy = { col: 'id', ascending: true };
+	const sortBy = { col: 'name', ascending: true };
 	let sortableCols: Element[] = [];
 
 	onMount(() => {
@@ -13,12 +13,16 @@
 	});
 
 	$: sort = (column: any) => {
-		const currentActiveCol = sortableCols.filter((col) =>
-			col.classList.contains('active-header')
+		const currActiveCol: Element = sortableCols.filter((c) =>
+			c.classList.contains('active-header')
 		)[0];
-		currentActiveCol.classList.remove('active-header');
-		const newActiveCol = sortableCols.filter((col) => col.innerHTML == column)[0];
-		newActiveCol.classList.add('active-header');
+		const newActiveCol: Element = sortableCols.filter((c) => c.innerHTML == column)[0];
+		if (currActiveCol === newActiveCol) {
+			// do nothing
+		} else {
+			currActiveCol.classList.remove('active-header');
+			newActiveCol.classList.add('active-header');
+		}
 
 		if (sortBy.col == column) {
 			sortBy.ascending = !sortBy.ascending;
