@@ -21,15 +21,11 @@
 						<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
 					</div>
 				{:else if i == nftImgUrls.length - 1}
-					<div
-						class="absolute flex transform -translate-y-1/2 left-5 right-5 top-1/2 justify-start"
-					>
+					<div class="absolute flex transform -translate-y-1/2 left-5 right-5 top-1/2 justify-start">
 						<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
 					</div>
 				{:else}
-					<div
-						class="absolute flex transform -translate-y-1/2 left-5 right-5 top-1/2 justify-between"
-					>
+					<div class="absolute flex transform -translate-y-1/2 left-5 right-5 top-1/2 justify-between">
 						<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
 						<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
 					</div>
