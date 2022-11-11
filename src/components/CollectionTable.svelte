@@ -1,166 +1,7 @@
 <script lang="ts">
-	interface Collection {
-		imgUrl: string;
-    name: string;
-		network: string;
-		volume: number;
-		floor: number;
-		tvl: number;
-		more: string[];
-	}
+	import type { Collection } from 'src/types/Collection';
 
-	const Collections: Collection[] = [
-		{
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-    {
-			imgUrl: 'https://placeimg.com/160/160/any',
-      name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
-			more: [
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any',
-				'https://placeimg.com/160/160/any'
-			]
-		},
-	];
+	export let collections: Collection[] = [];
 </script>
 
 <table class="table w-full mt-2">
@@ -175,30 +16,32 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each Collections as Collection}
+		{#each collections as collection}
 			<tr>
 				<td>
 					<div class="flex items-center space-x-3">
 						<div class="avatar">
 							<div class="mask mask-square w-16 h-16">
-								<img src={Collection.imgUrl} alt={`${Collection.name} NFT Collection`} />
+								<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
 							</div>
 						</div>
 						<div>
-							<div class="font-bold">{Collection.name}</div>
+							<div class="font-bold">{collection.name}</div>
 						</div>
 					</div>
 				</td>
-				<td class="text-center hidden sm:table-cell font-medium">{Collection.network}</td>
-				<td class="text-end sm:text-center">${Collection.volume}</td>
-				<td class="text-center hidden lg:table-cell font-medium">${Collection.floor}</td>
-				<td class="text-center hidden sm:table-cell sm:text-end xl:text-center font-medium">${Collection.tvl}</td>
+				<td class="text-center hidden sm:table-cell font-medium">{collection.network}</td>
+				<td class="text-end sm:text-center">${collection.volume}</td>
+				<td class="text-center hidden lg:table-cell font-medium">${collection.floor}</td>
+				<td class="text-center hidden sm:table-cell sm:text-end xl:text-center font-medium"
+					>${collection.tvl}</td
+				>
 				<td class="hidden xl:flex items-center justify-center space-x-4">
-          {#each Collection.more as imgUrl, i} 
-            <div class="mask mask-square w-16 h-16">
-              <img src={imgUrl} alt={`${Collection.name} Sample #${i}`} />
-            </div>
-          {/each}
+					{#each collection.more as imgUrl, i}
+						<div class="mask mask-square w-16 h-16">
+							<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
+						</div>
+					{/each}
 				</td>
 			</tr>
 		{/each}

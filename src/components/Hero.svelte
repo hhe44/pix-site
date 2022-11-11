@@ -1,4 +1,7 @@
-<div class="hero h-screen max-h-[60vh]" style="background-image: url(https://placeimg.com/1000/800/arch);">
+<div
+	class="hero h-screen max-h-[60vh]"
+	style="background-image: url(https://placeimg.com/1000/800/arch);"
+>
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
 		<div class="max-w-md text-base-100">

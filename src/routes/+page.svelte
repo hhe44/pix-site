@@ -1,12 +1,186 @@
-<script>
-	import Hero from '../components/Hero.svelte';
+<script lang="ts">
 	import CollectionTable from '../components/CollectionTable.svelte';
+	import Hero from '../components/Hero.svelte';
+	import NftDisplay from '../components/NftDisplay.svelte';
+	import type { Collection } from 'src/types/Collection';
+
+	const collections: Collection[] = [
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		},
+		{
+			imgUrl: 'https://placeimg.com/160/160/any',
+			name: 'Sample',
+			network: 'Hedera',
+			volume: 123,
+			floor: 123,
+			tvl: 123,
+			more: [
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any'
+			]
+		}
+	];
+	const upcomingDropsTitle: string = 'Upcoming Drops';
+	const upcomingDropsNftImgUrls: string[] = [
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch'
+	];
+	const newMintsTitle: string = 'newMints';
+	const newMintsNftImgUrls: string[] = [
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch',
+		'https://placeimg.com/400/400/arch'
+	];
 </script>
 
 <Hero />
 <div class="sm:p-4 md:p-8">
-
-	<div class="flex flex-col md:flex-row md:justify-evenly lg:justify-between items-center mt-4 space-y-4 md:space-y-0">
+	<div
+		class="flex flex-col md:flex-row md:justify-evenly lg:justify-between items-center mt-4 space-y-4 md:space-y-0"
+	>
 		<h3 class="text-2xl font-bold">Most Popular Collections</h3>
 		<div class="w-full flex justify-evenly md:w-1/2 lg:w-1/3 xl:w-1/4">
 			<select class="select select-ghost bg-base-200 select-sm">
@@ -19,83 +193,21 @@
 	</div>
 
 	<div class="overflow-x-auto">
-		<CollectionTable />
+		<CollectionTable {collections} />
 	</div>
 	<div class="text-center">
 		<h5 class="text-med font-bold">View All Collections ❯</h5>
 	</div>
-
-	<div class="flex flex-col items-center align-center mt-8">
-		<h3 class="text-2xl font-bold">Upcoming Drops</h3>
-		<div class="w-4/5 carousel carousel-center mt-2" data-target="#myCarousel">
-			<div id="slide1" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slide2" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slide3" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slide4" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
-				<div class="absolute flex justify-start transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+	<NftDisplay title={upcomingDropsTitle} nftImgUrls={upcomingDropsNftImgUrls} />
 	<div class="text-center">
 		<h5 class="mt-2 text-med font-bold">View All Drops ❯</h5>
 	</div>
 
-	<div class="flex flex-col items-center align-center mt-8">
-		<h3 class="text-2xl font-bold">New Mints</h3>
-		<div class="w-4/5 carousel mt-2">
-			<div id="slideA1" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slideA2" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slideA3" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch" alt="nft" class="w-full" />
-				<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❯</div>
-				</div>
-			</div> 
-			<div id="slideA4" class="carousel-item relative w-full">
-				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
-				<img src="https://placeimg.com/400/400/arch"alt="nft" class="w-full" />
-				<div class="absolute flex justify-start transform -translate-y-1/2 left-5 right-5 top-1/2">
-					<div class="text-2xl font-extrabold w-8 text-center bg-neutral text-gray-300">❮</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<NftDisplay title={newMintsTitle} nftImgUrls={newMintsNftImgUrls} />
 	<div class="text-center">
 		<h5 class="mt-2 text-med font-bold">View All Mints ❯</h5>
 	</div>
-
 </div>
 
 <style global lang="postcss">
@@ -104,7 +216,8 @@
 	@tailwind utilities;
 
 	/* Override daisyUI's CSS below: */
-	.btn, .select {
+	.btn,
+	.select {
 		border-radius: 0px;
 	}
 
@@ -114,7 +227,6 @@
 
 	.menu-horizontal li a:active {
 		background-color: transparent;
-		color: #191D24;
 	}
 
 	.outline-none {
