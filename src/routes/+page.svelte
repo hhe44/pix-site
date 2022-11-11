@@ -7,11 +7,11 @@
 	const collections: Collection[] = [
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
+			name: 'A Sample',
 			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			volume: 1,
+			floor: 2,
+			tvl: 3,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -22,11 +22,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'B Sample',
+			network: 'Ethereum',
+			volume: 2,
+			floor: 3,
+			tvl: 4,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -37,11 +37,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'C Sample',
+			network: 'BTC',
+			volume: 3,
+			floor: 4,
+			tvl: 5,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -52,11 +52,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'D Sample',
+			network: 'Solana',
+			volume: 4,
+			floor: 5,
+			tvl: 6,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -67,11 +67,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'E Sample',
+			network: 'Near',
+			volume: 5,
+			floor: 6,
+			tvl: 7,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -82,11 +82,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'F Sample',
+			network: 'EOS',
+			volume: 6,
+			floor: 7,
+			tvl: 8,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -97,11 +97,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'H Sample',
+			network: 'VeChain',
+			volume: 7,
+			floor: 8,
+			tvl: 9,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -112,11 +112,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'I Sample',
+			network: 'Cardano',
+			volume: 8,
+			floor: 9,
+			tvl: 0,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -127,11 +127,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'J Sample',
+			network: 'Monero',
+			volume: 9,
+			floor: 0,
+			tvl: 1,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -142,11 +142,11 @@
 		},
 		{
 			imgUrl: 'https://placeimg.com/160/160/any',
-			name: 'Sample',
-			network: 'Hedera',
-			volume: 123,
-			floor: 123,
-			tvl: 123,
+			name: 'K Sample',
+			network: 'Luna',
+			volume: 0,
+			floor: 1,
+			tvl: 2,
 			more: [
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -178,19 +178,6 @@
 
 <Hero />
 <div class="sm:p-4 md:p-8">
-	<div
-		class="flex flex-col md:flex-row md:justify-evenly lg:justify-between items-center mt-4 space-y-4 md:space-y-0"
-	>
-		<h3 class="text-2xl font-bold">Most Popular Collections</h3>
-		<div class="w-full flex justify-evenly md:w-1/2 lg:w-1/3 xl:w-1/4">
-			<select class="select select-ghost bg-base-200 select-sm">
-				<option selected>All networks</option>
-			</select>
-			<select class="select bg-base-200 select-sm">
-				<option selected>Last 7 Days</option>
-			</select>
-		</div>
-	</div>
 
 	<div class="overflow-x-auto">
 		<CollectionTable {collections} />
