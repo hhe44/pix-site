@@ -1,18 +1,32 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { Collection } from 'src/types/Collection';
 
 	export let collections: Collection[] = [];
 
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
-	let sortBy = { col: 'id', ascending: true };
+	const sortBy = { col: 'id', ascending: true };
+	let sortableCols: Element[] = [];
+
+	onMount(() => {
+		sortableCols = Array.from(document.querySelectorAll('.table th:not(:last-child)'));
+	});
 
 	$: sort = (column: any) => {
+		const currentActiveCol = sortableCols.filter((col) =>
+			col.classList.contains('active-header')
+		)[0];
+		currentActiveCol.classList.remove('active-header');
+		const newActiveCol = sortableCols.filter((col) => col.innerHTML == column)[0];
+		newActiveCol.classList.add('active-header');
+
 		if (sortBy.col == column) {
 			sortBy.ascending = !sortBy.ascending;
 		} else {
 			sortBy.col = column;
 			sortBy.ascending = true;
 		}
+
 		// Modifier to sorting function for ascending or descending
 		let sortModifier = sortBy.ascending ? 1 : -1;
 		let sort = (a: any, b: any) =>
@@ -36,9 +50,9 @@
 </div>
 
 <table class="table w-full mt-2">
-	<thead class="text-gray-400">
+	<thead class="text-gray-500">
 		<tr>
-			<th on:click={() => sort('name')} class="text-base">collection</th>
+			<th on:click={() => sort('name')} class="text-base active-header">name</th>
 			<th on:click={() => sort('network')} class="text-base text-center hidden sm:table-cell"
 				>network</th
 			>
@@ -87,7 +101,7 @@
 </table>
 
 <style lang="postcss">
-	.table th:not(:last-child):active {
+	.active-header {
 		@apply text-primary;
 	}
 </style>
