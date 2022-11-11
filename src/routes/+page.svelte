@@ -165,7 +165,7 @@
 		'https://placeimg.com/400/400/arch',
 		'https://placeimg.com/400/400/arch'
 	];
-	const newMintsTitle: string = 'newMints';
+	const newMintsTitle: string = 'New Mints';
 	const newMintsNftImgUrls: string[] = [
 		'https://placeimg.com/400/400/arch',
 		'https://placeimg.com/400/400/arch',
