@@ -25,6 +25,5 @@ module.exports = {
 		},
 		extend: {}
 	},
-	plugins: [require('daisyui')],
-	purge: ['src/app.html', 'src/**/*.svelte']
+	plugins: [require('daisyui')]
 };
