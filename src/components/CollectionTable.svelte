@@ -5,11 +5,14 @@
 	export let collections: Collection[] = [];
 
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
-	const sortBy = { col: 'name', ascending: true };
+	const sortBy = { col: 'id', ascending: true };
 	let sortableCols: Element[] = [];
 
 	onMount(() => {
 		sortableCols = Array.from(document.querySelectorAll('.table th:not(:last-child)'));
+		sortableCols.forEach((c) => {
+			if (c.innerHTML !== 'name') c.classList.remove('active-header');
+		});
 	});
 
 	$: sort = (column: any) => {
@@ -57,16 +60,21 @@
 	<thead class="text-gray-500">
 		<tr>
 			<th on:click={() => sort('name')} class="text-base active-header">name</th>
-			<th on:click={() => sort('network')} class="text-base text-center hidden sm:table-cell"
-				>network</th
+			<th
+				on:click={() => sort('network')}
+				class="text-base text-center hidden sm:table-cell active-header">network</th
 			>
-			<th on:click={() => sort('volume')} class="text-base text-end sm:text-center">volume</th>
-			<th on:click={() => sort('floor')} class="text-base text-center hidden lg:table-cell"
-				>floor</th
+			<th on:click={() => sort('volume')} class="text-base text-end sm:text-center active-header"
+				>volume</th
+			>
+			<th
+				on:click={() => sort('floor')}
+				class="text-base text-center hidden lg:table-cell active-header">floor</th
 			>
 			<th
 				on:click={() => sort('tvl')}
-				class="text-base text-center hidden sm:table-cell sm:text-end xl:text-center">tvl</th
+				class="text-base text-center hidden sm:table-cell sm:text-end xl:text-center active-header"
+				>tvl</th
 			>
 			<th class="text-base text-center hidden xl:table-cell">More</th>
 		</tr>
