@@ -1,22 +1,7 @@
-# create-svelte
+# Pixfi.io Site
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Set-up
+Once the project is cloned, run it with the command below:
 
 ```bash
 npm run dev
@@ -25,14 +10,24 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
 
-To create a production version of your app:
 
-```bash
-npm run build
-```
+## Styling Conventions
+When styling elements please follow the convention below: <br />
+**SIZE - DISPLAY + POSITION- MISC - Position of Child Element(s) - MEDIA QUERIES**
 
-You can preview the production build with `npm run preview`.
+- Size -> height, width...
+- Display + Position -> display, alignment, margin, padding...
+- Misc -> color, font weight...
+- Position of Child Element(s) -> justify-content, align-items, space-y-0, space-x-0....
+- Media Queries -> any styling that involves sm, md, lg, xl, 2xl...
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This is the convention currently utilized by the project, and should be adhered to if possible.
+
+
+
+## Deployment
+The site is automatically deployed upon merges to any branches through Vercel. <br />
+Merges to master will deploy the site to pixfi.io.
+
+You can preview the production build with `npm run preview` or build locally with `npm run build`.
