@@ -3,7 +3,7 @@
 	export let itemCount: number = 0;
 </script>
 
-<div class="navbar bg-transparent">
+<nav class="navbar bg-transparent">
 	<div class="navbar-start lg:pl-8">
 		<a href="/" class="btn btn-ghost rounded mr-4">LOGO</a>
 		<input
@@ -80,4 +80,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</nav>

@@ -42,75 +42,81 @@
 	};
 </script>
 
-<div
-	class="flex flex-col md:flex-row md:justify-evenly lg:justify-between items-center mt-4 space-y-4 md:space-y-0"
->
-	<h3 class="text-2xl font-bold">Most Popular Collections</h3>
-	<div class="w-full flex justify-evenly md:w-1/2 lg:w-1/3 xl:w-1/4">
-		<select class="select select-ghost bg-base-200 select-sm">
-			<option selected>All networks</option>
-		</select>
-		<select class="select bg-base-200 select-sm">
-			<option selected>Last 7 Days</option>
-		</select>
+<section>
+	<div
+		class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between"
+	>
+		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
+		<div class="w-full mt-4 flex justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
+			<select class="select select-ghost bg-base-200 select-sm">
+				<option selected>All networks</option>
+			</select>
+			<select class="select bg-base-200 select-sm">
+				<option selected>Last 7 Days</option>
+			</select>
+		</div>
 	</div>
-</div>
 
-<table class="table w-full mt-2">
-	<thead class="text-gray-500">
-		<tr>
-			<th on:click={() => sort('name')} class="text-base active-header">name</th>
-			<th
-				on:click={() => sort('network')}
-				class="text-base text-center hidden sm:table-cell active-header">network</th
-			>
-			<th on:click={() => sort('volume')} class="text-base text-end sm:text-center active-header"
-				>volume</th
-			>
-			<th
-				on:click={() => sort('floor')}
-				class="text-base text-center hidden lg:table-cell active-header">floor</th
-			>
-			<th
-				on:click={() => sort('tvl')}
-				class="text-base text-center hidden sm:table-cell sm:text-end xl:text-center active-header"
-				>tvl</th
-			>
-			<th class="text-base text-center hidden xl:table-cell">More</th>
-		</tr>
-	</thead>
-	<tbody>
-		{#each collections as collection}
+	<table class="table w-full mt-2">
+		<thead class="text-gray-500">
 			<tr>
-				<td>
-					<div class="flex items-center space-x-3">
-						<div class="avatar">
-							<div class="mask mask-square w-20 h-20">
-								<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
+				<th on:click={() => sort('name')} class="text-base active-header">name</th>
+				<th
+					on:click={() => sort('network')}
+					class="text-base text-center hidden active-header sm:table-cell">network</th
+				>
+				<th on:click={() => sort('volume')} class="text-base text-end active-header sm:text-center"
+					>volume</th
+				>
+				<th
+					on:click={() => sort('floor')}
+					class="text-base text-center hidden active-header lg:table-cell">floor</th
+				>
+				<th
+					on:click={() => sort('tvl')}
+					class="text-base text-center hidden active-header sm:table-cell sm:text-end xl:text-center"
+					>tvl</th
+				>
+				<th class="text-base text-center hidden xl:table-cell">More</th>
+			</tr>
+		</thead>
+		<tbody>
+			{#each collections as collection}
+				<tr>
+					<td>
+						<div class="flex items-center space-x-3">
+							<div class="avatar">
+								<div class="mask mask-square w-20 h-20">
+									<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
+								</div>
+							</div>
+							<div>
+								<div class="font-bold">{collection.name}</div>
 							</div>
 						</div>
-						<div>
-							<div class="font-bold">{collection.name}</div>
-						</div>
-					</div>
-				</td>
-				<td class="text-center hidden sm:table-cell font-medium">{collection.network}</td>
-				<td class="text-end sm:text-center">${collection.volume}</td>
-				<td class="text-center hidden lg:table-cell font-medium">${collection.floor}</td>
-				<td class="text-center hidden sm:table-cell sm:text-end xl:text-center font-medium"
-					>${collection.tvl}</td
-				>
-				<td class="hidden xl:flex items-center justify-center space-x-4">
-					{#each collection.more as imgUrl, i}
-						<div class="mask mask-square w-20 h-20">
-							<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
-						</div>
-					{/each}
-				</td>
-			</tr>
-		{/each}
-	</tbody>
-</table>
+					</td>
+					<td class="text-center hidden font-medium sm:table-cell ">{collection.network}</td>
+					<td class="text-end sm:text-center">${collection.volume}</td>
+					<td class="text-center hidden font-medium lg:table-cell">${collection.floor}</td>
+					<td class="text-center hidden font-medium sm:table-cell sm:text-end xl:text-center"
+						>${collection.tvl}</td
+					>
+					<td class="hidden items-center justify-center space-x-4 xl:flex">
+						{#each collection.more as imgUrl, i}
+							<div class="mask mask-square w-20 h-20">
+								<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
+							</div>
+						{/each}
+					</td>
+				</tr>
+			{/each}
+		</tbody>
+	</table>
+
+	<div class="text-center">
+		<h5 class="text-med font-bold">View All Collections ❯</h5>
+	</div>
+</section>
 
 <style lang="postcss">
 	.active-header {

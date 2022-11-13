@@ -177,22 +177,8 @@
 </script>
 
 <Hero />
-<div class="sm:p-4 md:p-8">
-
-	<div class="overflow-x-auto">
-		<CollectionTable {collections} />
-	</div>
-	<div class="text-center">
-		<h5 class="text-med font-bold">View All Collections ❯</h5>
-	</div>
-	
-	<NftDisplay title={upcomingDropsTitle} nftImgUrls={upcomingDropsNftImgUrls} />
-	<div class="text-center">
-		<h5 class="mt-2 text-med font-bold">View All Drops ❯</h5>
-	</div>
-
-	<NftDisplay title={newMintsTitle} nftImgUrls={newMintsNftImgUrls} />
-	<div class="text-center">
-		<h5 class="mt-2 text-med font-bold">View All Mints ❯</h5>
-	</div>
-</div>
+<main class="p-2 sm:p-4 md:p-8 space-y-8">
+	<CollectionTable {collections} />
+	<NftDisplay caption={"View All Drops ❯"} title={upcomingDropsTitle} nftImgUrls={upcomingDropsNftImgUrls} />
+	<NftDisplay caption={"View All Mints ❯"} title={newMintsTitle} nftImgUrls={newMintsNftImgUrls} />
+</main>

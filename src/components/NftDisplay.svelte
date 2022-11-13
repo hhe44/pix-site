@@ -1,13 +1,14 @@
 <script lang="ts">
-	export let title: string = 'Upcoming Drops';
+	export let caption: string = '';
+	export let title: string = '';
 	export let nftImgUrls: string[] = [];
 </script>
 
-<div class="flex flex-col items-center align-center mt-8">
-	<h3 class="text-2xl font-bold">{title}</h3>
-	<div class="w-4/5 carousel carousel-center mt-2 sm:w-full sm:flex-wrap sm:justify-evenly" data-target="#myCarousel">
+<section class="flex flex-col items-center">
+	<h2 class="text-2xl font-bold lg:self-start lg:pl-4">{title}</h2>
+	<div class="w-4/5 carousel carousel-center sm:w-full sm:flex-wrap sm:justify-evenly" data-target="#myDisplay">
 		{#each nftImgUrls as imgUrl, i}
-			<div id="slide#{i}" class="carousel-item relative w-full sm:w-2/5 sm:pt-8 md:w-[29%] lg:w-[15%] lg:pt-0">
+			<div id="displayItem#{i}" class="carousel-item relative w-full sm:w-2/5 sm:mt-4 md:w-[29%] lg:w-[15%]">
 				<img src={imgUrl} alt="NFT Display #{i}" class="w-full" />
 				{#if i == 0}
 					<div class="absolute flex transform -translate-y-1/2 left-5 right-5 top-1/2 justify-end sm:hidden">
@@ -26,4 +27,9 @@
 			</div>
 		{/each}
 	</div>
-</div>
+	{#if caption}
+	<div class="text-center">
+		<h3 class="mt-4 font-bold">{caption}</h3>
+	</div>
+	{/if}
+</section>
