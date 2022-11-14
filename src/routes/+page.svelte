@@ -3,6 +3,7 @@
 	import Hero from '../components/Hero.svelte';
 	import NftDisplay from '../components/NftDisplay.svelte';
 	import type { Collection } from 'src/types/Collection';
+	import type { Card } from 'src/types/Card';
 
 	const collections: Collection[] = [
 		{
@@ -156,29 +157,125 @@
 			]
 		}
 	];
+
+	const upcomingDropsCaption: string = 'View All Drops ❯';
 	const upcomingDropsTitle: string = 'Upcoming Drops';
-	const upcomingDropsNftImgUrls: string[] = [
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch'
+	const upcomingDropsCardData: Card[] = [
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Loco Lizards',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Sloth Society',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'CloneX',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Pixelmon',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'HGraphPunks',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Degen Ape Academy',
+			cardDetails: [
+				['Mint Price', 123],
+				['Supply', 1200]
+			]
+		}
 	];
+
+	const newMintsCaption: string = 'View All Mints ❯';
 	const newMintsTitle: string = 'New Mints';
-	const newMintsNftImgUrls: string[] = [
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch',
-		'https://placeimg.com/400/400/arch'
+	const newMintsNftImgUrls: Card[] = [
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'My Pet Hooligan',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Hashcrab Gen 2.0',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Kitaro World',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Hedera Monkeys',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'OK Bears',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		},
+		{
+			url: 'https://placeimg.com/400/400/arch',
+			name: 'Bionic Ducks',
+			cardDetails: [
+				['Volume', 123],
+				['Listed', '10/10']
+			]
+		}
 	];
 </script>
 
 <Hero />
 <main class="p-2 sm:p-4 md:p-8 space-y-8">
 	<CollectionTable {collections} />
-	<NftDisplay caption={"View All Drops ❯"} title={upcomingDropsTitle} nftImgUrls={upcomingDropsNftImgUrls} />
-	<NftDisplay caption={"View All Mints ❯"} title={newMintsTitle} nftImgUrls={newMintsNftImgUrls} />
+	<NftDisplay
+		caption={upcomingDropsCaption}
+		title={upcomingDropsTitle}
+		cardsData={upcomingDropsCardData}
+	/>
+	<NftDisplay 
+		caption={newMintsCaption} 
+		title={newMintsTitle} 
+		cardsData={newMintsNftImgUrls} 
+	/>
 </main>

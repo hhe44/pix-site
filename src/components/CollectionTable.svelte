@@ -8,6 +8,9 @@
 	const sortBy = { col: 'id', ascending: true };
 	let sortableCols: Element[] = [];
 
+	// for whatever reason adding classes for styling doesn't work in prod
+	// workaround: have all columns be active headers and remove them on mount (except for the name col)
+	// collections array should be sorted by name upon initialization
 	onMount(() => {
 		sortableCols = Array.from(document.querySelectorAll('.table th:not(:last-child)'));
 		sortableCols.forEach((c) => {
