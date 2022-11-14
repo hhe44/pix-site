@@ -5,7 +5,7 @@
   export let cardDetails: [string, string | number][]
 </script>
 
-<div class="w-full">
+<div class="w-full cursor-pointer transition duration-150 hover:scale-95">
 	<img class="w-full" src={imgUrl} alt={imgAlt} />
 	<div>
 		<p class="m-2 font-bold text-center">{name}</p>
