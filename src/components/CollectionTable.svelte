@@ -1,7 +1,13 @@
 <script lang="ts">
 	import type { Collection } from 'src/types/Collection';
+	import Dropdown from './Dropdown.svelte';
 
 	export let collections: Collection[] = [];
+
+	const networkDropdownName = "All Networks";
+	const networkOptions = ['Hedera', 'Ethereum', 'Binance'];
+	const timeRangeDropdownName = "Last 7 Days";
+	const timeRangeOptions = ['Last Month', 'Last Year', 'All Time'];
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
 	const sortBy = { col: 'name', ascending: true };
 
@@ -27,13 +33,8 @@
 	<div class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between">
 		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
 		<div class="w-full mt-4 flex justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
-			<!-- TODO: Replace daisyUI option selects with something nicer -->
-			<select class="select select-ghost bg-base-200 select-sm">
-				<option selected>All networks</option>
-			</select>
-			<select class="select bg-base-200 select-sm">
-				<option selected>Last 7 Days</option>
-			</select>
+			<Dropdown name={networkDropdownName} options={networkOptions} />
+			<Dropdown name={timeRangeDropdownName} options={timeRangeOptions} />
 		</div>
 	</div>
 
