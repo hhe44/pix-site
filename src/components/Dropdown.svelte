@@ -1,25 +1,47 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { elasticInOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 
-	export let name: string = '';
 	export let options: string[] = [];
-
+	export let sortOrder: boolean = false;
+	let selected: string = '';
 	let open = false;
-	const dropdownHandler = () => (open = !open);
+
+	onMount(() => {
+		if (sortOrder) options.sort();
+		selected = options[0];
+	});
+
+	const dropdownHandler = (e: any) => {
+		selected = e.currentTarget.innerText;
+		open = !open;
+	};
+
+	const focusOutHandler = (e: any) => {
+		const relatedTarget = e.relatedTarget;
+		const currentTarget = e.currentTarget;
+		if (
+			relatedTarget instanceof HTMLElement &&
+			currentTarget instanceof HTMLElement &&
+			currentTarget.contains(relatedTarget)
+		)
+			return;
+		open = false;
+	};
 </script>
 
-<div class="relative inline-block text-left">
+<div on:focusout={(e) => focusOutHandler(e)} class="relative inline-block text-left">
 	<div>
 		<button
-			on:click={dropdownHandler}
+			on:click={(e) => dropdownHandler(e)}
 			type="button"
 			class="
-				inline-flex w-full justify-center border border-gray-300 bg-white px-2 py-1 text-sm font-bold
+				inline-flex w-36 justify-center border border-gray-300 bg-white px-2 py-1 text-sm font-bold
 				text-neutral shadow-sm hover:bg-gray-50 sm:px-4 sm:py-2
 			"
 		>
-			<p class="relative top-[2px]">{name}</p>
+			<p class="relative top-[2px]">{selected}</p>
 			<svg
 				class="-mr-1 ml-2 h-5 w-5"
 				xmlns="http://www.w3.org/2000/svg"

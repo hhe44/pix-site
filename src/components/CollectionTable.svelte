@@ -4,15 +4,12 @@
 
 	export let collections: Collection[] = [];
 
-	const networkDropdownName = "All Networks";
-	const networkOptions = ['Hedera', 'Ethereum', 'Binance'];
-	const timeRangeDropdownName = "Last 7 Days";
-	const timeRangeOptions = ['Last Month', 'Last Year', 'All Time'];
+	const networkOptions = ['All', 'Hedera', 'Ethereum', 'Binance'];
+	const timeRangeOptions = ['Last Week', 'Last Month', 'Last Year'];
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
 	const sortBy = { col: 'name', ascending: true };
 
 	$: sort = (column: any) => {
-
 		if (sortBy.col == column) {
 			sortBy.ascending = !sortBy.ascending;
 		} else {
@@ -25,7 +22,6 @@
 		let sort = (a: any, b: any) =>
 			a[column] < b[column] ? -1 * sortModifier : a[column] > b[column] ? 1 * sortModifier : 0;
 		collections = collections.sort(sort);
-
 	};
 </script>
 
@@ -33,8 +29,8 @@
 	<div class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between">
 		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
 		<div class="w-full mt-4 flex justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
-			<Dropdown name={networkDropdownName} options={networkOptions} />
-			<Dropdown name={timeRangeDropdownName} options={timeRangeOptions} />
+			<Dropdown options={networkOptions} sortOrder={true} />
+			<Dropdown options={timeRangeOptions} />
 		</div>
 	</div>
 
