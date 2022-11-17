@@ -5,8 +5,8 @@
 	export let cardDetails: [string, string | number][];
 </script>
 
-<div class="group w-full cursor-pointer transition duration-150 hover:opacity-75">
-	<img class="w-full" src={imgUrl} alt={imgAlt} />
+<div class="group w-full cursor-pointer">
+	<img class="w-full transition duration-150 group-hover:opacity-75" src={imgUrl} alt={imgAlt} />
 	<div>
 		<p class="m-2 font-bold text-center">{name}</p>
 		<div class="flex justify-around">

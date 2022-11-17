@@ -8,12 +8,16 @@
 	border-radius: 0px;
 }
 
+.btn:focus-visible {
+	outline: none;
+}
+
 .btn-circle {
 	border-radius: 9999px;
 }
 
 .menu-horizontal li a:active {
-	background-color: transparent;
+	@apply bg-transparent text-primary
 }
 
 .menu-horizontal li a:hover {
