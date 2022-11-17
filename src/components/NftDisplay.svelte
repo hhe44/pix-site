@@ -4,7 +4,7 @@
 	export let caption: string = '';
 	export let title: string = '';
 	export let cardsData: Card[] = [];
-	//TO-DO: Integrate swiper.js
+	//TODO: Integrate swiper.js
 </script>
 
 <section class="flex flex-col items-center">
@@ -49,7 +49,7 @@
 	</div>
 	{#if caption}
 		<div class="text-center">
-			<h3 class="mt-4 font-bold">{caption}</h3>
+			<h3 class="mt-4 font-bold cursor-pointer">{caption}</h3>
 		</div>
 	{/if}
 </section>

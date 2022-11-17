@@ -49,6 +49,7 @@
 	<div class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between">
 		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
 		<div class="w-full mt-4 flex justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
+			<!-- TODO: Replace daisyUI option selects with something nicer -->
 			<select class="select select-ghost bg-base-200 select-sm">
 				<option selected>All networks</option>
 			</select>
@@ -120,7 +121,7 @@
 	</table>
 
 	<div class="text-center">
-		<h5 class="text-med font-bold">View All Collections ❯</h5>
+		<h5 class="text-med font-bold cursor-pointer">View All Collections ❯</h5>
 	</div>
 </section>
 
