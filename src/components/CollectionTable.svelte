@@ -1,34 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { Collection } from 'src/types/Collection';
 
 	export let collections: Collection[] = [];
-
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
-	const sortBy = { col: 'id', ascending: true };
-	let sortableCols: Element[] = [];
-
-	// for whatever reason adding classes for styling doesn't work in prod
-	// workaround: have all columns be active headers and remove them on mount (except for the name col)
-	// collections array should be sorted by name upon initialization
-	onMount(() => {
-		sortableCols = Array.from(document.querySelectorAll('.table th:not(:last-child)'));
-		sortableCols.forEach((c) => {
-			if (c.innerHTML !== 'name') c.classList.remove('active-header');
-		});
-	});
+	const sortBy = { col: 'name', ascending: true };
 
 	$: sort = (column: any) => {
-		const currActiveCol: Element = sortableCols.filter((c) =>
-			c.classList.contains('active-header')
-		)[0];
-		const newActiveCol: Element = sortableCols.filter((c) => c.innerHTML == column)[0];
-		if (currActiveCol === newActiveCol) {
-			// do nothing
-		} else {
-			currActiveCol.classList.remove('active-header');
-			newActiveCol.classList.add('active-header');
-		}
 
 		if (sortBy.col == column) {
 			sortBy.ascending = !sortBy.ascending;
@@ -42,6 +19,7 @@
 		let sort = (a: any, b: any) =>
 			a[column] < b[column] ? -1 * sortModifier : a[column] > b[column] ? 1 * sortModifier : 0;
 		collections = collections.sort(sort);
+
 	};
 </script>
 
@@ -62,26 +40,30 @@
 	<table class="table w-full mt-2">
 		<thead class="text-gray-500">
 			<tr>
-				<th on:click={() => sort('name')} class="text-base active-header transition duration-150"
-					>name</th
+				<th
+					class:active-header={sortBy.col === 'name'}
+					on:click={() => sort('name')}
+					class="text-base transition duration-150">name</th
 				>
 				<th
+					class:active-header={sortBy.col === 'network'}
 					on:click={() => sort('network')}
-					class="text-base text-center hidden active-header sm:table-cell transition duration-150"
-					>network</th
+					class="text-base text-center hidden sm:table-cell transition duration-150">network</th
 				>
 				<th
+					class:active-header={sortBy.col === 'volume'}
 					on:click={() => sort('volume')}
-					class="text-base text-end active-header sm:text-center transition duration-150">volume</th
+					class="text-base text-end sm:text-center transition duration-150">volume</th
 				>
 				<th
+					class:active-header={sortBy.col === 'floor'}
 					on:click={() => sort('floor')}
-					class="text-base text-center hidden active-header lg:table-cell transition duration-150"
-					>floor</th
+					class="text-base text-center hidden lg:table-cell transition duration-150">floor</th
 				>
 				<th
+					class:active-header={sortBy.col === 'tvl'}
 					on:click={() => sort('tvl')}
-					class="text-base text-center hidden active-header sm:table-cell sm:text-end xl:text-center transition duration-150"
+					class="text-base text-center hidden sm:table-cell sm:text-end xl:text-center transition duration-150"
 					>tvl</th
 				>
 				<th class="text-base text-center hidden xl:table-cell">More</th>
@@ -93,7 +75,9 @@
 					<td>
 						<div class="flex items-center space-x-3">
 							<div class="avatar">
-								<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95">
+								<div
+									class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95"
+								>
 									<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
 								</div>
 							</div>
@@ -110,7 +94,9 @@
 					>
 					<td class="hidden items-center justify-center space-x-4 xl:flex">
 						{#each collection.more as imgUrl, i}
-							<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95">
+							<div
+								class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95"
+							>
 								<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
 							</div>
 						{/each}
