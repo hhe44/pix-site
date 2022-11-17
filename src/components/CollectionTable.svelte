@@ -92,7 +92,7 @@
 					<td>
 						<div class="flex items-center space-x-3">
 							<div class="avatar">
-								<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:opacity-75">
+								<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95">
 									<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
 								</div>
 							</div>
@@ -109,7 +109,7 @@
 					>
 					<td class="hidden items-center justify-center space-x-4 xl:flex">
 						{#each collection.more as imgUrl, i}
-							<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:opacity-75">
+							<div class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95">
 								<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
 							</div>
 						{/each}
