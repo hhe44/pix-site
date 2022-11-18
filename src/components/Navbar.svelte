@@ -14,8 +14,8 @@
 	</div>
 	<div class="navbar-center hidden sm:block">
 		<ul class="menu menu-horizontal lg:space-x-2 text-sm font-bold">
-			<li><a href="/">Discover</a></li>
-			<li><a href="/">Create</a></li>
+			<li><a href="/discover">Discover</a></li>
+			<li><a href="/create">Create</a></li>
 			<li><a href="/">Drops</a></li>
 			<li><a href="/">Stats</a></li>
 		</ul>
