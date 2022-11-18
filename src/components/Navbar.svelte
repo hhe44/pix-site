@@ -73,8 +73,8 @@
 			</button>
 			<ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
 				<p class="hidden md:block text-sm font-bold mx-4">{accountId}</p>
-				<li><a href="/">Discover</a></li>
-				<li><a href="/">Create</a></li>
+				<li><a href="/discover">Discover</a></li>
+				<li><a href="/create">Create</a></li>
 				<li><a href="/">Drops</a></li>
 				<li><a href="/">Stats</a></li>
 			</ul>
