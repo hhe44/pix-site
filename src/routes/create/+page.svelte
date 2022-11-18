@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<main class="p-2 sm:p-4 md:p-8 space-y-8 h-[calc(100vh_-_6rem)]">
+<main class="flex flex-col p-2 sm:p-4 md:p-8 h-[calc(100vh_-_6rem)]">
 	<section>
 		<h2 class="mb-4 text-3xl font-bold text-center">Select your network</h2>
 		<p class="text-lg text-center">
@@ -9,14 +9,14 @@
 		</p>
 	</section>
 
-	<section class="space-y-4">
+	<section class="mt-8 space-y-4">
 		<button class="btn btn-outline w-full">Hedera</button>
 		<button class="btn btn-outline w-full">Ethereum</button>
 		<button class="btn btn-outline w-full">Polygon</button>
 		<button class="btn btn-outline w-full">Solana</button>
 	</section>
 
-	<section class="flex align-bottom flex-col justify-center items-center space-y-4 mb-auto">
+	<section class="flex align-bottom flex-col justify-center items-center space-y-4 mt-auto">
 		<p>Step 1 of 5</p>
 		<progress class="progress w-56" value="20" max="100" />
 		<div class="flex">
