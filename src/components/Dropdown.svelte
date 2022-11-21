@@ -37,7 +37,7 @@
 			on:click={(e) => dropdownHandler(e)}
 			type="button"
 			class="
-				inline-flex w-36 justify-center border border-gray-300 bg-white px-2 py-1 text-sm font-bold
+				inline-flex justify-center border border-gray-300 bg-white px-2 py-1 text-sm font-bold
 				text-neutral shadow-sm hover:bg-gray-50 sm:px-4 sm:py-2
 			"
 		>

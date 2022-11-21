@@ -6,4 +6,4 @@
 
 <Navbar />
 <slot></slot>
-<!-- <Footer /> -->
+<Footer />
