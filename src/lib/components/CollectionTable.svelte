@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { Collection } from 'src/types/Collection';
-	import Dropdown from './Dropdown.svelte';
+	import type { Collection } from '$lib/types/Collection';
 
 	export let collections: Collection[] = [];
 

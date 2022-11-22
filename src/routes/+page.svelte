@@ -1,9 +1,9 @@
 <script lang="ts">
-	import CollectionTable from '../components/CollectionTable.svelte';
-	import Hero from '../components/Hero.svelte';
-	import NftDisplay from '../components/NftDisplay.svelte';
-	import type { Collection } from 'src/types/Collection';
-	import type { Card } from 'src/types/Card';
+	import CollectionTable from '$lib/components/CollectionTable.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import NftDisplay from '$lib/components/NftDisplay.svelte';
+	import type { Collection } from '$lib/types/Collection';
+	import type { Card } from '$lib/types/Card';
 
 	const collections: Collection[] = [
 		{

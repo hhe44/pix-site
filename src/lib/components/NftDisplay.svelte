@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Card } from 'src/types/Card';
+	import type { Card } from '$lib/types/Card';
 	import NftCard from './NftCard.svelte';
 	export let caption: string = '';
 	export let title: string = '';
