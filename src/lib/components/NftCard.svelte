@@ -1,4 +1,8 @@
 <script lang="ts">
+	// Workaround to allow tailwind styling of imported components
+	let className = '';
+	export { className as class };
+
 	export let alt: string = '';
 	export let cardDetails: [string, string | number][];
 	export let name: string = '';
@@ -6,17 +10,16 @@
 	export let showButtons: boolean = false;
 </script>
 
-<div class="relative w-full cursor-pointer group">
+<div class={`relative cursor-pointer group ${className}`}>
 	<img
-		class={`w-full transition duration-150 ${
-			showButtons ? 'group-hover:opacity-75' : ''}
+		class={`w-full transition duration-150 ${showButtons ? 'group-hover:opacity-75' : ''}
 		`}
 		src={url}
 		{alt}
 	/>
 	<div>
-		<p class="m-2 font-bold text-center">{name}</p>
-		<div class="flex justify-around">
+		<p class={`m-2 font-bold ${cardDetails.length == 1 ? 'text-left' : 'text-center'}`}>{name}</p>
+		<div class={`flex ${cardDetails.length == 1 ? 'justify-start ml-2' : 'justify-around'}`}>
 			{#each cardDetails as detail}
 				<div>
 					<p class="text-sm font-semibold text-gray-500">{detail[0]}</p>
