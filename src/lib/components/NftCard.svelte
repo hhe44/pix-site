@@ -1,12 +1,12 @@
 <script lang="ts">
-	export let imgUrl: string = '';
-	export let imgAlt: string = '';
-	export let name: string = '';
+	export let alt: string = '';
 	export let cardDetails: [string, string | number][];
+	export let name: string = '';
+	export let url: string = '';
 </script>
 
 <div class="group w-full cursor-pointer">
-	<img class="w-full transition duration-150 group-hover:opacity-75" src={imgUrl} alt={imgAlt} />
+	<img class="w-full transition duration-150 group-hover:opacity-75" src={url} alt={alt} />
 	<div>
 		<p class="m-2 font-bold text-center">{name}</p>
 		<div class="flex justify-around">

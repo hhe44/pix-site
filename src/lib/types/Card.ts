@@ -1,5 +1,6 @@
 export interface Card {
-  url: string;
+  alt?: string;
+  cardDetails: [string, string | number][];
   name: string;
-  cardDetails: [string, string | number][]
+  url: string;
 }
