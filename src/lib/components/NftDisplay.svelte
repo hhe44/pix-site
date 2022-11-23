@@ -1,7 +1,5 @@
 <script lang="ts">
 	import type { Card } from '$lib/types/Card';
-	import CollectionTable from './CollectionTable.svelte';
-	import Dropdown from './Dropdown.svelte';
 	import NftCard from './NftCard.svelte';
 	export let caption: string = '';
 	export let title: string = '';
@@ -20,7 +18,7 @@
 				id="displayItem#{i}"
 				class="carousel-item relative w-full sm:w-2/5 sm:mt-4 md:w-[29%] lg:w-[15%]"
 			>
-				<NftCard {...data} />
+				<NftCard {...data} showButtons={true} />
 				{#if i == 0}
 					<div
 						class="absolute flex transform -translate-y-[43%] left-5 right-5 top-[43%] justify-end sm:hidden"

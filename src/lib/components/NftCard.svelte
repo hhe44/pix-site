@@ -3,10 +3,17 @@
 	export let cardDetails: [string, string | number][];
 	export let name: string = '';
 	export let url: string = '';
+	export let showButtons: boolean = false;
 </script>
 
-<div class="group w-full cursor-pointer">
-	<img class="w-full transition duration-150 group-hover:opacity-75" src={url} alt={alt} />
+<div class="relative w-full cursor-pointer group">
+	<img
+		class={`w-full transition duration-150 ${
+			showButtons ? 'group-hover:opacity-75' : ''}
+		`}
+		src={url}
+		{alt}
+	/>
 	<div>
 		<p class="m-2 font-bold text-center">{name}</p>
 		<div class="flex justify-around">
@@ -20,7 +27,9 @@
 	</div>
 	<div class="absolute top-[50%] left-[50%] translate-x-[-50%]">
 		<div
-			class="btn-hidden opacity-0 flex space-x-4 transition duration-300 group-hover:opacity-100"
+			class={`opacity-0 flex space-x-4 transition duration-300 ${
+				showButtons ? 'group-hover:opacity-100' : ''
+			}`}
 		>
 			<button class="btn btn-square w-24 text-base-100">Buy Now</button>
 			<button class="btn btn-square w-12">
@@ -35,7 +44,10 @@
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
-							d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+							d="
+								M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 
+								1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z
+							"
 						/>
 					</svg>
 				</div>
