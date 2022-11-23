@@ -14,7 +14,7 @@
 <section>
 	<div class="flex flex-wrap justify-around">
 		{#each Array(24) as _}
-			<NftCard class="mt-2 w-[45%] sm:w-[30%] md:w-[23%] lg:w-[18%] xl:w-[15%]" {...dummyCard} />
+			<NftCard class="w-[100%] sm:w-[45%] md:w-[23%] lg:w-[18%] xl:w-[15%]" {...dummyCard} />
 		{/each}
 	</div>
 </section>

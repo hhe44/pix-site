@@ -2,9 +2,6 @@
 	import type { Collection } from '$lib/types/Collection';
 
 	export let collections: Collection[] = [];
-
-	const networkOptions = ['All', 'Hedera', 'Ethereum', 'Binance'];
-	const timeRangeOptions = ['Week', 'Month', 'Year'];
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
 	const sortBy = { col: 'name', ascending: true };
 

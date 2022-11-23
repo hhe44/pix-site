@@ -1,26 +1,30 @@
-<script>
+<script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import '$src/app.postcss';
+	import { slide } from 'svelte/transition';
+
+	let openSidebar: boolean = false;
+	$: toggleSidebar = () => {
+		openSidebar = !openSidebar;
+	};
 </script>
 
-<div class="drawer">
-	<input id="discover-drawer" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content">
-		<!-- Page content here -->
-		<Navbar />
-		<div class="flex justify-around items-center sm:justify-end mr-7">
-			<label for="discover-drawer" class="btn btn-sm btn-accent drawer-button">Filter</label>
-			<select class="select">
-				<option selected>Recently</option>
-			</select>
-		</div>
-		<main class="p-2 sm:p-4 md:p-8 space-y-8"><slot /></main>
-		<Footer />
-	</div>
-	<div class="drawer-side">
-		<label for="discover-drawer" class="drawer-overlay" />
-		<div class="menu w-[80%] max-w-xs p-4 bg-base-100 text-base-content pl-8 space-y-8">
+<Navbar />
+<div class="flex justify-around items-center sm:justify-end mr-7">
+	<button on:click={toggleSidebar} class="btn btn-sm btn-accent">Filter</button>
+	<select class="select">
+		<option selected>Recently</option>
+	</select>
+</div>
+<div class="flex">
+	{#if openSidebar}
+		<div
+			in:slide={{ delay: 100 }}
+			out:slide={{ delay: 200 }}
+			class={`absolute block z-[1] w-full max-w-[20rem] min-h-screen mt-2 pl-6 space-y-8  bg-base-100  sm:static
+	`}
+		>
 			<div>
 				<p class="font-bold">Status</p>
 				<div class="form-control">
@@ -86,5 +90,15 @@
 				/>
 			</div>
 		</div>
-	</div>
+	{/if}
+	<main class={`w-full p-2 sm:p-4 md:p-8 space-y-8 ${openSidebar ? 'opacity-90' : ''}`}>
+		<slot />
+	</main>
 </div>
+<Footer />
+
+<style lang="postcss">
+	.open {
+		@apply absolute block z-[1] w-full max-w-[20rem] min-h-screen sm:static;
+	}
+</style>
