@@ -24,14 +24,14 @@
 <section>
 	<div class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between">
 		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
-		<div class="w-32 flex justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
-			<select class="select bg-accent">
+		<div class="w-full flex mt-2 justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
+			<select class="select select-sm bg-accent">
 				<option selected>All</option>
 				<option>Hedera</option>
 				<option>Ethereum</option>
 				<option>Binance</option>
 			</select>
-			<select class="select bg-accent">
+			<select class="select select-sm  bg-accent">
 				<option selected>Week</option>
 				<option>Month</option>
 				<option>Year</option>

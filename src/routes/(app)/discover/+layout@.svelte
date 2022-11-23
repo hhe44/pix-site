@@ -2,7 +2,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import '$src/app.postcss';
-	import { slide } from 'svelte/transition';
+	import { cubicIn, elasticIn, elasticInOut, expoIn, expoOut, quadIn, quadInOut, quadOut, sineIn, sineOut } from 'svelte/easing';
+	import { fade, fly, slide } from 'svelte/transition';
 
 	let openSidebar: boolean = false;
 	$: toggleSidebar = () => {
@@ -11,7 +12,7 @@
 </script>
 
 <Navbar />
-<div class="flex justify-around items-center sm:justify-end mr-7">
+<div class="flex w-full px-2 sm:px-4 md:px-8 justify-around items-center sm:justify-between">
 	<button on:click={toggleSidebar} class="btn btn-sm btn-accent">Filter</button>
 	<select class="select">
 		<option selected>Recently</option>
@@ -20,9 +21,9 @@
 <div class="flex">
 	{#if openSidebar}
 		<div
-			in:slide={{ delay: 100 }}
-			out:slide={{ delay: 200 }}
-			class={`absolute block z-[1] w-full max-w-[20rem] min-h-screen mt-2 pl-6 space-y-8  bg-base-100  sm:static
+			in:slide={{ delay: 50, duration:150, easing:expoIn }}
+			out:fade={{ delay: 50, duration:150, easing:expoOut }}
+			class={`absolute block z-[1] w-full max-w-[20rem] min-h-screen pt-4 pl-6 space-y-8  bg-base-100  sm:static
 	`}
 		>
 			<div>
@@ -91,7 +92,7 @@
 			</div>
 		</div>
 	{/if}
-	<main class={`w-full p-2 sm:p-4 md:p-8 space-y-8 ${openSidebar ? 'opacity-90' : ''}`}>
+	<main class={`w-full p-2 sm:p-4 md:p-8 space-y-8`}>
 		<slot />
 	</main>
 </div>
