@@ -23,7 +23,21 @@ module.exports = {
 		fontFamily: {
 			sans: ['"Inter"', 'sans-serif']
 		},
-		extend: {}
+		extend: {
+			spacing: {
+				1: '8px',
+				1.5: '12px',
+				2: '16px',
+				3: '24px',
+				4: '32px',
+				5: '40px',
+				6: '48px',
+				7: '56px',
+				8: '64px',
+				9: '72px',
+				10: '80px'
+			}
+		}
 	},
 	plugins: [require('daisyui')]
 };

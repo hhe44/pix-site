@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { Collection } from '$lib/types/Collection';
+	import type { Collection } from '$lib/types/';
+	import { _ } from 'svelte-i18n';
 
 	export let collections: Collection[] = [];
 	// Holds table sort state.  Initialized to reflect table sorted by id column ascending.
@@ -22,53 +23,60 @@
 </script>
 
 <section>
-	<div class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between">
-		<h2 class="text-2xl font-bold">Most Popular Collections</h2>
-		<div class="w-full flex mt-2 justify-evenly md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
-			<select class="select select-sm bg-accent">
-				<option selected>All</option>
+	<div
+		class="flex flex-col items-center md:flex-row md:justify-evenly lg:justify-between mb-[42px]"
+	>
+		<h2 class="text-2xl font-bold">{$_('CollectionTable.Most popular collections')}</h2>
+		<div class="flex gap-2">
+			<select class="select select-sm bg-accent ">
+				<option selected>{$_('CollectionTable.All networks')}</option>
 				<option>Hedera</option>
 				<option>Ethereum</option>
 				<option>Binance</option>
 			</select>
-			<select class="select select-sm  bg-accent">
-				<option selected>Week</option>
-				<option>Month</option>
-				<option>Year</option>
+			<select class="select select-sm bg-accent ">
+				<option selected>{$_('CollectionTable.7 days')}</option>
+				<option>{$_('CollectionTable.Month')}</option>
+				<option>{$_('CollectionTable.Year')}</option>
 			</select>
 		</div>
 	</div>
 
-	<table class="table w-full mt-2">
+	<table class="table w-full">
 		<thead class="text-gray-500">
 			<tr>
 				<th
 					class:active-header={sortBy.col === 'name'}
 					on:click={() => sort('name')}
-					class="text-base transition duration-150">name</th
+					class="text-base transition duration-150">{$_('CollectionTable.Collection')}</th
 				>
 				<th
 					class:active-header={sortBy.col === 'network'}
 					on:click={() => sort('network')}
-					class="text-base text-center hidden sm:table-cell transition duration-150">network</th
+					class="text-base text-center hidden sm:table-cell transition duration-150"
+					>{$_('CollectionTable.Network')}</th
 				>
 				<th
 					class:active-header={sortBy.col === 'volume'}
 					on:click={() => sort('volume')}
-					class="text-base text-end sm:text-center transition duration-150">volume</th
+					class="text-base text-end transition duration-150">{$_('CollectionTable.7D Vol')}</th
 				>
 				<th
 					class:active-header={sortBy.col === 'floor'}
 					on:click={() => sort('floor')}
-					class="text-base text-center hidden lg:table-cell transition duration-150">floor</th
+					class="text-base text-end hidden lg:table-cell transition duration-150"
+					>{$_('CollectionTable.Floor price')}</th
 				>
 				<th
 					class:active-header={sortBy.col === 'tvl'}
 					on:click={() => sort('tvl')}
-					class="text-base text-center hidden sm:table-cell sm:text-end xl:text-center transition duration-150"
-					>tvl</th
+					class="text-base text-end hidden sm:table-cell transition duration-150"
+					>{$_('CollectionTable.Total value locked')}</th
 				>
-				<th class="text-base text-center hidden xl:table-cell">More</th>
+				<th />
+				<th class="text-base hidden xl:table-cell"
+					>{$_('CollectionTable.More from this collection')}</th
+				>
 			</tr>
 		</thead>
 		<tbody>
@@ -77,9 +85,7 @@
 					<td>
 						<div class="flex items-center space-x-3">
 							<div class="avatar">
-								<div
-									class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95"
-								>
+								<div class="mask mask-square w-[88px] cursor-pointer transition duration-150">
 									<img src={collection.imgUrl} alt={`${collection.name} NFT Collection`} />
 								</div>
 							</div>
@@ -89,16 +95,13 @@
 						</div>
 					</td>
 					<td class="text-center hidden font-medium sm:table-cell ">{collection.network}</td>
-					<td class="text-end sm:text-center">${collection.volume}</td>
-					<td class="text-center hidden font-medium lg:table-cell">${collection.floor}</td>
-					<td class="text-center hidden font-medium sm:table-cell sm:text-end xl:text-center"
-						>${collection.tvl}</td
-					>
-					<td class="hidden items-center justify-center space-x-4 xl:flex">
+					<td class="text-end">${collection.volume}</td>
+					<td class="text-end hidden font-medium lg:table-cell">${collection.floor}</td>
+					<td class="text-end hidden font-medium sm:table-cell ">${collection.tvl}</td>
+					<td />
+					<td class="hidden gap-2 xl:flex">
 						{#each collection.more as imgUrl, i}
-							<div
-								class="mask mask-square w-20 h-20 cursor-pointer transition duration-150 hover:scale-95"
-							>
+							<div class="mask mask-square w-[88px] cursor-pointer transition duration-150">
 								<img src={imgUrl} alt={`${collection.name} Sample #${i}`} />
 							</div>
 						{/each}
@@ -109,7 +112,9 @@
 	</table>
 
 	<div class="text-center">
-		<h5 class="text-med font-bold cursor-pointer">View All Collections ❯</h5>
+		<h5 class="text-med font-bold cursor-pointer">
+			{$_('CollectionTable.View all collections')} ❯
+		</h5>
 	</div>
 </section>
 

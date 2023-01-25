@@ -1,8 +1,18 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
+	import { Footer, Navbar } from '$lib/components/';
 	import '$src/app.postcss';
-	import { cubicIn, elasticIn, elasticInOut, expoIn, expoOut, quadIn, quadInOut, quadOut, sineIn, sineOut } from 'svelte/easing';
+	import {
+		cubicIn,
+		elasticIn,
+		elasticInOut,
+		expoIn,
+		expoOut,
+		quadIn,
+		quadInOut,
+		quadOut,
+		sineIn,
+		sineOut
+	} from 'svelte/easing';
 	import { fade, fly, slide } from 'svelte/transition';
 
 	let openSidebar: boolean = false;
@@ -21,8 +31,8 @@
 <div class="flex">
 	{#if openSidebar}
 		<div
-			in:slide={{ delay: 50, duration:150, easing:expoIn }}
-			out:fade={{ delay: 50, duration:150, easing:expoOut }}
+			in:slide={{ delay: 50, duration: 150, easing: expoIn }}
+			out:fade={{ delay: 50, duration: 150, easing: expoOut }}
 			class={`absolute block z-[1] w-full max-w-[20rem] min-h-screen pt-4 pl-6 space-y-8  bg-base-100  sm:static
 	`}
 		>

@@ -35,6 +35,7 @@
 	"dependencies": {
 		"daisyui": "^2.31.0",
 		"hashconnect": "^0.2.3",
+		"svelte-i18n": "^3.6.0",
 		"theme-change": "^2.2.0"
 	}
 }

@@ -1,0 +1,27 @@
+{
+	"CollectionTable": {
+		"Most popular collections": "Mest populära kollektionerna",
+		"All networks": "Alla nätverk",
+		"7 days": "7 dagar",
+		"Month": "Månad",
+		"Year": "År",
+		"Collection": "Kollektion",
+		"Network": "Nätverk",
+		"7D Vol": "7D Vol",
+		"Floor price": "Golv pris",
+		"Total value locked": "Total värde låst",
+		"More from this collection": "Mer från denna kollektion",
+		"View all collections": "Visa alla kollektioner"
+	},
+	"Hero": {
+		"All your favorite NFTs": "Alla dina favorit NFTs.",
+		"All in": "Alla på",
+		"one place": "en plats."
+	},
+	"Navbar": {
+		"Discover": "Utforska",
+		"Collections": "Kollektioner",
+		"Search for an NFT, collection or artist": "Sök efter en NFT, kollektion eller artist",
+		"Sign in": "Logga in"
+	}
+}

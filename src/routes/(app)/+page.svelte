@@ -1,9 +1,6 @@
 <script lang="ts">
-	import CollectionTable from '$lib/components/CollectionTable.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import NftDisplay from '$lib/components/NftDisplay.svelte';
-	import type { Collection } from '$lib/types/Collection';
-	import type { Card } from '$lib/types/Card';
+	import { CollectionTable, Hero, NftDisplay } from '$lib/components/';
+	import type { Card, Collection } from '$lib/types/';
 
 	const collections: Collection[] = [
 		{
@@ -14,6 +11,7 @@
 			floor: 2,
 			tvl: 3,
 			more: [
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -33,6 +31,7 @@
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any'
 			]
 		},
@@ -44,6 +43,7 @@
 			floor: 4,
 			tvl: 5,
 			more: [
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -63,6 +63,7 @@
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any'
 			]
 		},
@@ -74,6 +75,7 @@
 			floor: 6,
 			tvl: 7,
 			more: [
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -93,6 +95,7 @@
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any'
 			]
 		},
@@ -104,6 +107,7 @@
 			floor: 8,
 			tvl: 9,
 			more: [
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -123,6 +127,7 @@
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any'
 			]
 		},
@@ -138,6 +143,7 @@
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any'
 			]
 		},
@@ -149,6 +155,7 @@
 			floor: 1,
 			tvl: 2,
 			more: [
+				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
 				'https://placeimg.com/160/160/any',
@@ -266,16 +273,12 @@
 </script>
 
 <Hero />
-<main class="p-2 sm:p-4 md:p-8 space-y-8">
+<main class="px-5 py-6 space-y-8">
 	<CollectionTable {collections} />
 	<NftDisplay
 		caption={upcomingDropsCaption}
 		title={upcomingDropsTitle}
 		cardsData={upcomingDropsCardData}
 	/>
-	<NftDisplay 
-		caption={newMintsCaption} 
-		title={newMintsTitle} 
-		cardsData={newMintsNftImgUrls} 
-	/>
+	<NftDisplay caption={newMintsCaption} title={newMintsTitle} cardsData={newMintsNftImgUrls} />
 </main>

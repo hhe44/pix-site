@@ -1,6 +1,7 @@
 # Pixfi.io Site
 
 ## Set-up
+
 Once the project is cloned, run it with the command below:
 
 ```bash
@@ -10,9 +11,8 @@ npm run dev
 npm run dev -- --open
 ```
 
-
-
 ## Styling Conventions
+
 When styling elements please follow the convention below: <br />
 **SIZE - DISPLAY + POSITION- MISC - Position of Child Element(s) - MEDIA QUERIES**
 
@@ -24,9 +24,8 @@ When styling elements please follow the convention below: <br />
 
 This is the convention currently utilized by the project, and should be adhered to if possible.
 
-
-
 ## Deployment
+
 The site is automatically deployed upon merges to any branches through Vercel. <br />
 Merges to master will deploy the site to pixfi.io.
 

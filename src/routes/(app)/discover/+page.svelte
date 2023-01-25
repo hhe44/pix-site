@@ -1,9 +1,8 @@
 <script lang="ts">
-	import NftCard from '$lib/components/NftCard.svelte';
-	import type { Card } from '$lib/types/Card';
-	const dummyDetails: [string, string | number][] = [
-		['Mint Price', 123]
-	];
+	import { NftCard } from '$lib/components/';
+	import type { Card } from '$lib/types/';
+
+	const dummyDetails: [string, string | number][] = [['Mint Price', 123]];
 	const dummyCard: Card = {
 		url: 'https://placeimg.com/400/400/arch',
 		name: 'dummy',

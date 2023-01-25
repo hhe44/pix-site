@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Card } from '$lib/types/Card';
-	import NftCard from './NftCard.svelte';
+	import type { Card } from '$lib/types/';
+	import { NftCard } from './';
 	export let caption: string = '';
 	export let title: string = '';
 	export let cardsData: Card[] = [];

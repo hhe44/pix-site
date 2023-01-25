@@ -1,0 +1,27 @@
+{
+	"CollectionTable": {
+		"Most popular collections": "Most popular collections",
+		"All networks": "All networks",
+		"7 days": "7 days",
+		"Month": "Month",
+		"Year": "Year",
+		"Collection": "Collection",
+		"Network": "Network",
+		"7D Vol": "7D Vol",
+		"Floor price": "Floor price",
+		"Total value locked": "Total value locked",
+		"More from this collection": "More from this collection",
+		"View all collections": "View all collections"
+	},
+	"Hero": {
+		"All your favorite NFTs": "All your favorite NFTs.",
+		"All in": "All in",
+		"one place": "one place."
+	},
+	"Navbar": {
+		"Discover": "Discover",
+		"Collections": "Collections",
+		"Search for an NFT, collection or artist": "Search for an NFT, collection or artist",
+		"Sign in": "Sign in"
+	}
+}
