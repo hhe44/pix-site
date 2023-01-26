@@ -1,5 +1,4 @@
 <script context="module">
-	import { Footer, Navbar } from '$lib/components/';
 	import '$src/app.postcss';
 	import { register, init, getLocaleFromNavigator, waitLocale, isLoading } from 'svelte-i18n';
 
@@ -20,7 +19,5 @@
 {#if $isLoading}
 	Loading
 {:else}
-	<Navbar />
 	<slot />
-	<Footer />
 {/if}

@@ -25,12 +25,16 @@ input {
 	font-weight: 600;
 	padding: 10px 16px;
 	border-radius: 6px;
-	min-width: 400px;
+	min-width: 200px;
 	@apply bg-stone-100;
 }
 
 input:focus {
 	outline: 0;
+}
+
+input::placeholder {
+	font-weight: 500;
 }
 
 .menu-horizontal li a:active {
