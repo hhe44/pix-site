@@ -2,28 +2,59 @@
 	import AOS from 'aos';
 	import { TwitterIcon } from '$lib/icons';
 	import { onMount } from 'svelte';
+	import { supabase } from '$src/lib/supabaseClient';
 
-	export const networks: Array<{ icon: string; image: string }> = [
-		{ icon: './images/logos/Algorand-Icon-White.svg', image: './images/nfts/Algorand-NFT.svg' },
-		{ icon: './images/logos/Avalanche-Icon-White.svg', image: './images/nfts/Avalanche-NFT.svg' },
-		{ icon: './images/logos/BSC-Icon-White.svg', image: './images/nfts/BSC-NFT.svg' },
-		{ icon: './images/logos/Ethereum-Icon-White.svg', image: './images/nfts/Ethereum-NFT.svg' },
-		{ icon: './images/logos/Fantom-Icon-White.svg', image: './images/nfts/Fantom-NFT.svg' },
-		{ icon: './images/logos/Hedera-Icon-White.svg', image: './images/nfts/Hedera-NFT.svg' },
-		{ icon: './images/logos/Moonbeam-Icon-White.svg', image: './images/nfts/Moonbeam-NFT.svg' },
-		{ icon: './images/logos/Near-Icon-White.svg', image: './images/nfts/Near-NFT.svg' },
-		{ icon: './images/logos/Polygon-Icon-White.svg', image: './images/nfts/Polygon-NFT.svg' },
-		{ icon: './images/logos/Solana-Icon-White.svg', image: './images/nfts/Solana-NFT.svg' }
+	const networks: Array<{ icon: string; image: string }> = [
+		{ icon: 'images/logos/Algorand-Icon-White.svg', image: 'images/nfts/Algorand-NFT.svg' },
+		{ icon: 'images/logos/Avalanche-Icon-White.svg', image: 'images/nfts/Avalanche-NFT.svg' },
+		{ icon: 'images/logos/BSC-Icon-White.svg', image: 'images/nfts/BSC-NFT.svg' },
+		{ icon: 'images/logos/Ethereum-Icon-White.svg', image: 'images/nfts/Ethereum-NFT.svg' },
+		{ icon: 'images/logos/Fantom-Icon-White.svg', image: 'images/nfts/Fantom-NFT.svg' },
+		{ icon: 'images/logos/Hedera-Icon-White.svg', image: 'images/nfts/Hedera-NFT.svg' },
+		{ icon: 'images/logos/Moonbeam-Icon-White.svg', image: 'images/nfts/Moonbeam-NFT.svg' },
+		{ icon: 'images/logos/Near-Icon-White.svg', image: 'images/nfts/Near-NFT.svg' },
+		{ icon: 'images/logos/Polygon-Icon-White.svg', image: 'images/nfts/Polygon-NFT.svg' },
+		{ icon: 'images/logos/Solana-Icon-White.svg', image: 'images/nfts/Solana-NFT.svg' }
 	];
-	export const videoUrl: string = './videos/hero-video.mp4';
-	export const currentYear: number = new Date().getFullYear();
-	export let isSnackbarVisible: boolean = false;
+	const videoUrl: string = 'videos/hero-video.mp4';
+	const currentYear: number = new Date().getFullYear();
+	const SNACKBAR_MESSAGES = {
+		DUP_EMAIL: 'That email is already added!',
+		FAIL: 'Something went wrong!\nPlease try again!',
+		REGEX_FAIL: "That doesn't look right...\nPlease try again!",
+		SUCCESS: 'Email added - thank you!'
+	};
+	let snackbarMessage: string = '';
+	let isSnackbarVisible: boolean = false;
+	let inputElement: HTMLInputElement;
+	let email: string = '';
 
-	export const submitForm = () => {
+	const submitForm = async () => {
+		email = email.toLocaleLowerCase();
+		// email address length & regex check
+		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
+			const { error } = await supabase.from('email_list').insert([{ email }]);
+			if (error) {
+				console.error(error);
+				if (error.code == '23505') {
+					snackbarMessage = SNACKBAR_MESSAGES.DUP_EMAIL;
+				} else {
+					snackbarMessage = SNACKBAR_MESSAGES.FAIL;
+				}
+			} else {
+				snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
+				await supabase.functions.invoke("send-email", {
+					body: { email },
+				});
+				inputElement.value = '';
+			}
+		} else {
+			snackbarMessage = SNACKBAR_MESSAGES.REGEX_FAIL;
+		}
 		isSnackbarVisible = true;
 		setTimeout(() => {
 			isSnackbarVisible = false;
-		}, 7000);
+		}, 5000);
 	};
 
 	onMount(() => {
@@ -37,10 +68,10 @@
 
 <main>
 	{#if isSnackbarVisible}
-		<div class="toast toast-center toast-top  w-32 p-0 top-[24px] md:top-[40px]  z-50">
+		<div class="toast toast-center toast-top w-64 p-0 top-[24px] md:top-[40px]  z-50">
 			<div class="alert bg-white justify-center">
 				<div>
-					<p class="text-center font-medium">Thank you!</p>
+					<p class="text-center font-medium">{snackbarMessage}</p>
 				</div>
 			</div>
 		</div>
@@ -48,7 +79,7 @@
 	<header
 		class="flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 bg-transparent"
 	>
-		<img class="w-28" src="./images/pix/pix-logo-white.png" alt="Pix logo" />
+		<img class="w-28" src="images/pix/pix-logo-white.png" alt="Pix logo" />
 		<a href="https://twitter.com/pixfiio" rel="noreferrer" target="_blank"
 			><img src={TwitterIcon} alt="Twitter" /></a
 		>
@@ -138,7 +169,7 @@
 					<img
 						data-aos="zoom-in"
 						data-aos-delay="1100"
-						src="./images/pix/pix-logo-white.png"
+						src="images/pix/pix-logo-white.png"
 						alt="Pix logo"
 					/>
 				</div>
@@ -151,7 +182,7 @@
 			<div class="flex flex-col gap-6">
 				<h1 class="text-4xl md:text-6xl font-bold text-center">Join the PixFi community</h1>
 				<p class="text-center text-lg font-medium">
-					Sign up to get the latest developments from PixFi.
+					Get updated on the latest developments from PixFi.
 				</p>
 			</div>
 			<div
@@ -159,7 +190,13 @@
 				data-aos="fade-up"
 				data-aos-delay="300"
 			>
-				<input class="w-full " type="text" placeholder="Enter your email" />
+				<input
+					bind:this={inputElement}
+					bind:value={email}
+					class="w-full"
+					type="text"
+					placeholder="Enter your email"
+				/>
 				<button
 					on:click={submitForm}
 					class="w-full rounded-[6px] bg-black text-white font-bold text-[14px] px-2 py-[10px]"
@@ -172,7 +209,7 @@
 
 	<footer class="py-3 bg-black">
 		<div class="flex justify-center items-center gap-3 text-white">
-			<img src="./images/pix/pix-logo-white.png" alt="Pix logo" />
+			<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
 			<p>&copy; {currentYear} PixFi</p>
 		</div>
 	</footer>
