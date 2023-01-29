@@ -30,3 +30,7 @@ The site is automatically deployed upon merges to any branches through Vercel. <
 Merges to master will deploy the site to pixfi.io.
 
 You can preview the production build with `npm run preview` or build locally with `npm run build`.
+
+## References
+[Supabase - Setup with SvelteKit](https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit#set-up-the-database-schema)
+[SvelteKit - Using ENV Vars](https://www.youtube.com/watch?v=h2VzXTfbUpQ)
