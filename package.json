@@ -34,6 +34,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@supabase/auth-helpers-sveltekit": "^0.8.7",
+		"@supabase/supabase-js": "^2.5.0",
 		"aos": "^2.3.4",
 		"daisyui": "^2.31.0",
 		"hashconnect": "^0.2.3",
