@@ -4,7 +4,8 @@
 	const videoUrl: string = 'videos/hero-video.mp4';
 	const currentYear: number = new Date().getFullYear();
 	const SNACKBAR_MESSAGES = {
-		FAIL: 'Something went wrong!\nPlease try again!',
+		ALREADY_REMOVED: "That email may have already been removed.",
+		FAIL: "Something went wrong!\nPlease try again!",
 		REGEX_FAIL: "That doesn't look right...\nPlease try again!",
 		SUCCESS: 'Email has been removed from mail list!'
 	};
@@ -17,26 +18,17 @@
 		email = email.toLocaleLowerCase();
 		// email address length & regex check
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
-			const { data, error: selectError } = await supabase
-				.from('email_list')
-				.select()
-				.eq('email', email);
-			console.log(data);
-			if ((data != null && data.length == 0) || selectError) {
-				console.error(selectError);
-				snackbarMessage = SNACKBAR_MESSAGES.FAIL;
-			} else {
-				const { error: deleteError } = await supabase
-					.from('email_list')
-					.delete()
-					.eq('email', email);
-				if (deleteError) {
-					console.error(deleteError);
-					snackbarMessage = SNACKBAR_MESSAGES.FAIL;
+			const res = await supabase.functions.invoke("unsubscribe-email", { body: { email } });
+			if (res.error) {
+				console.error(await res.error.context.text());
+				if (res.error.context.status == 400) {
+					snackbarMessage = SNACKBAR_MESSAGES.ALREADY_REMOVED;
 				} else {
-					snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
-					inputElement.value = '';
+					snackbarMessage = SNACKBAR_MESSAGES.FAIL
 				}
+			} else {
+				snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
+				inputElement.value = "";
 			}
 		} else {
 			snackbarMessage = SNACKBAR_MESSAGES.REGEX_FAIL;

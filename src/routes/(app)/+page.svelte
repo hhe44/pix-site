@@ -33,28 +33,23 @@
 		email = email.toLocaleLowerCase();
 		// email address length & regex check
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
-			const { error } = await supabase.from('email_list').insert([{ email }]);
-			if (error) {
-				console.error(error);
-				if (error.code == '23505') {
+			const res = await supabase.functions.invoke("subscribe-email", { body: { email } });
+			if (res.error) {
+				console.error(await res.error.context.text())
+				if (res.error.context.status == 400) {
 					snackbarMessage = SNACKBAR_MESSAGES.DUP_EMAIL;
 				} else {
-					snackbarMessage = SNACKBAR_MESSAGES.FAIL;
+					snackbarMessage = SNACKBAR_MESSAGES.FAIL
 				}
 			} else {
 				snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
-				await supabase.functions.invoke("send-email", {
-					body: { email },
-				});
-				inputElement.value = '';
+				inputElement.value = "";
 			}
 		} else {
 			snackbarMessage = SNACKBAR_MESSAGES.REGEX_FAIL;
 		}
 		isSnackbarVisible = true;
-		setTimeout(() => {
-			isSnackbarVisible = false;
-		}, 5000);
+		setTimeout(() => { isSnackbarVisible = false; }, 5000);
 	};
 
 	onMount(() => {
