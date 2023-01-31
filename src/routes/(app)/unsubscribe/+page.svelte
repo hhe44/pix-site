@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TwitterIcon } from '$lib/icons';
-	import { supabase } from '$src/lib/supabaseClient';
+	import { supabase } from '$lib/supabaseClient';
 	const videoUrl: string = 'videos/hero-video.mp4';
 	const currentYear: number = new Date().getFullYear();
 	const SNACKBAR_MESSAGES = {
