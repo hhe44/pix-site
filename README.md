@@ -6,7 +6,6 @@ Once the project is cloned, run it with the command below:
 
 ```bash
 npm run dev
-
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
