@@ -25,9 +25,11 @@
 		SUCCESS: 'Email added - thank you!'
 	};
 	let snackbarMessage: string = '';
-	let isSnackbarVisible: boolean = false;
 	let inputElement: HTMLInputElement;
 	let email: string = '';
+	let isSnackbarVisible: boolean = false;
+	let isSubmitBtnDisabled: boolean = false;
+	let isSubmitSuccessful: boolean = false;
 
 	const submitForm = async () => {
 		email = email.toLocaleLowerCase();
@@ -35,21 +37,28 @@
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
 			const res = await supabase.functions.invoke("subscribe-email", { body: { email } });
 			if (res.error) {
-				console.error(await res.error.context?.text())
+				console.error(await res.error.context?.text());
+				isSubmitSuccessful = false;
 				if (res.error.context?.status == 400) {
 					snackbarMessage = SNACKBAR_MESSAGES.DUP_EMAIL;
 				} else {
-					snackbarMessage = SNACKBAR_MESSAGES.FAIL
+					snackbarMessage = SNACKBAR_MESSAGES.FAIL;
 				}
 			} else {
+				isSubmitSuccessful = true;
 				snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
 				inputElement.value = "";
 			}
 		} else {
+			isSubmitSuccessful = false;
 			snackbarMessage = SNACKBAR_MESSAGES.REGEX_FAIL;
 		}
 		isSnackbarVisible = true;
-		setTimeout(() => { isSnackbarVisible = false; }, 5000);
+		isSubmitBtnDisabled = true;
+		setTimeout(() => { 
+			isSnackbarVisible = false;
+			isSubmitBtnDisabled = false; 
+		}, 5000);
 	};
 
 	onMount(() => {
@@ -64,7 +73,10 @@
 <main>
 	{#if isSnackbarVisible}
 		<div class="toast toast-center toast-top w-64 p-0 top-[24px] md:top-[40px]  z-50">
-			<div class="alert bg-white justify-center">
+			<div class={`
+				alert bg-white border-t-4 justify-center
+				${ isSubmitSuccessful ?  'border-green-500' : 'border-red-500' }
+			`}>
 				<div>
 					<p class="text-center font-medium">{snackbarMessage}</p>
 				</div>
@@ -194,7 +206,11 @@
 				/>
 				<button
 					on:click={submitForm}
-					class="w-full rounded-[6px] bg-black text-white font-bold text-[14px] px-2 py-[10px]"
+					disabled={isSubmitBtnDisabled}
+					class={`
+						w-full rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
+						${ isSubmitBtnDisabled ? 'text-gray-200' : 'text-white' }
+					`}
 				>
 					Join the hype
 				</button>
