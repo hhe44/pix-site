@@ -35,8 +35,8 @@
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
 			const res = await supabase.functions.invoke("subscribe-email", { body: { email } });
 			if (res.error) {
-				console.error(await res.error.context.text())
-				if (res.error.context.status == 400) {
+				console.error(res.error);
+				if (res.error.context?.status == 400) {
 					snackbarMessage = SNACKBAR_MESSAGES.DUP_EMAIL;
 				} else {
 					snackbarMessage = SNACKBAR_MESSAGES.FAIL
