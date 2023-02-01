@@ -20,7 +20,7 @@
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
 			const res = await supabase.functions.invoke("unsubscribe-email", { body: { email } });
 			if (res.error) {
-				console.error(res.error);
+				console.error(await res.error.context?.text());
 				if (res.error.context?.status == 400) {
 					snackbarMessage = SNACKBAR_MESSAGES.ALREADY_REMOVED;
 				} else {

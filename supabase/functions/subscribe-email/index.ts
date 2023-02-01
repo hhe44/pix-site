@@ -5,38 +5,44 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 import axios from 'https://deno.land/x/redaxios@0.5.1/mod.ts';
 
-const dc = Deno.env.get("MAILCHIMP_DATACENTER");
-const listId = Deno.env.get("MAILCHIMP_LIST_ID");
+const dc = Deno.env.get('MAILCHIMP_DATACENTER');
+const listId = Deno.env.get('MAILCHIMP_LIST_ID');
 const subscribeEmailUrl = `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members`;
-const mailchimpApiKey = Deno.env.get("MAILCHIMP_API_KEY")
+const mailchimpApiKey = Deno.env.get('MAILCHIMP_API_KEY');
 
 const corsHeaders = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST",
-  "Access-Control-Expose-Headers": "Content-Length, X-JSON",
-  "Access-Control-Allow-Headers": "apikey, X-Client-Info, Content-Type, Authorization, Accept, Accept-Language, X-Authorization",
+	'Access-Control-Allow-Origin': 'https://www.pixfi.io',
+	'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
 };
 
 serve(async (req) => {
-
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
-  }
+  
+	if (req.method === 'OPTIONS') {
+		return new Response('ok', { headers: corsHeaders });
+	}
 
 	const { email } = await req.json();
-  try {
-    const res = await axios.post( subscribeEmailUrl, { email_address: email, status: "subscribed" }, {
-      headers: { authorization: `Basic ${mailchimpApiKey}` }
+	try {
+		const res = await axios.post(
+			subscribeEmailUrl,
+			{ email_address: email, status: 'subscribed' },
+			{ headers: { authorization: `Basic ${mailchimpApiKey}` }
     });
-    console.debug(res.data);
-    return new Response(`${email} is added to the mailchimp list!`, {status: 200}, { headers: corsHeaders });
-  } catch(e) {
-    console.error(e.data);
-    const { detail, status, title } = e.data;
-    return new Response(detail, {status, statusText: title}, { headers: corsHeaders });
-  }
-
+		console.debug(res.data);
+		const data = { message: `${email} is added to the mailchimp list!` };
+		return new Response(JSON.stringify(data), {
+			headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+			status: 200
+		});
+	} catch (e) {
+		console.error(e.data);
+		const { status, title } = e.data;
+		return new Response(JSON.stringify(e.data), {
+			headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+			statusText: title,
+			status
+		});
+	}
 });
 
 // To invoke:
