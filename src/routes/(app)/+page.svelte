@@ -16,7 +16,7 @@
 		{ icon: 'images/logos/Polygon-Icon-White.svg', image: 'images/nfts/Polygon-NFT.svg' },
 		{ icon: 'images/logos/Solana-Icon-White.svg', image: 'images/nfts/Solana-NFT.svg' }
 	];
-	const videoUrl: string = 'videos/hero-video.mp4';
+	const videoUrl: string = 'videos/hero-video.mov';
 	const currentYear: number = new Date().getFullYear();
 	const SNACKBAR_MESSAGES = {
 		DUP_EMAIL: 'That email is already added!',
@@ -84,7 +84,10 @@
 		</div>
 	{/if}
 	<header
-		class="flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 bg-transparent"
+		class="
+			flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 
+			bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]
+		"
 	>
 		<img class="w-28" src="images/pix/pix-logo-white.png" alt="Pix logo" />
 		<a href="https://twitter.com/pixfiio" rel="noreferrer" target="_blank"
@@ -227,6 +230,7 @@
 </main>
 
 <style>
+
 	.hero::before {
 		content: '';
 		position: absolute;
