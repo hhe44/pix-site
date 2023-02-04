@@ -139,16 +139,16 @@
 	</section>
 
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
-		<div class="flex flex-col items-center gap-6">
+		<div class="flex flex-col items-center gap-3">
 			<p
-				class="text-4xl md:text-xl text-center"
+				class="text-xl md:text-xl text-center"
 				data-aos="slide-right"
 				data-aos-offset="-100"
 			>
 				Web3 is fragmentated.
 			</p>
 			<div class="max-w-xl" data-aos="fade-up">
-				<h1 class="text-center text-4xl font-bold">
+				<h1 class="text-center text-3xl md:text-5xl font-bold">
 					...we make it seamless.
 				</h1>
 			</div>
@@ -183,12 +183,9 @@
 		<div class="flex flex-col items-center" data-aos="fade-up">
 			<div class="flex flex-col gap-6">
 				<h1 class="text-4xl md:text-6xl font-bold text-center">Join the PixFi community</h1>
-				<p class="text-center text-lg font-medium">
-					Get updated on the latest developments from PixFi.
-				</p>
 			</div>
 			<div
-				class="flex flex-col items-center gap-2 w-full max-w-md mt-2"
+				class="flex items-center gap-2 w-full max-w-md mt-2"
 				data-aos="fade-up"
 				data-aos-delay="300"
 			>
@@ -203,7 +200,7 @@
 					on:click={submitForm}
 					disabled={isSubmitBtnDisabled}
 					class={`
-						w-full rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
+						w-48 max-w-xs rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
 						${ isSubmitBtnDisabled ? 'text-gray-200' : 'text-white' }
 					`}
 				>
