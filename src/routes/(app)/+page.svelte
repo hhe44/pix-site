@@ -116,13 +116,6 @@
 				</h1>
 			</div>
 
-			<div class="max-w-lg" data-aos="fade-up" data-aos-delay="600">
-				<p class="text-center text-md font-medium md:text-lg">
-					PixFi is a frictionless multi-chain NFT aggregator, taking your NFT and DeFi experiece to
-					the next level.
-				</p>
-			</div>
-
 			<div class="flex gap-2 justify-center flex-wrap md:gap-3 ">
 				{#each networks as network, i}
 					<img
@@ -147,18 +140,17 @@
 
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
 		<div class="flex flex-col items-center gap-6">
-			<h1
-				class="text-4xl md:text-6xl font-bold text-center"
+			<p
+				class="text-4xl md:text-xl text-center"
 				data-aos="slide-right"
 				data-aos-offset="-100"
 			>
-				What PixFi is building
-			</h1>
+				Web3 is fragmentated.
+			</p>
 			<div class="max-w-xl" data-aos="fade-up">
-				<p class="text-center text-lg font-medium">
-					The NFT experience in Web3 is fragmented. We're bringing it all together in one seamless
-					experience for everyone.
-				</p>
+				<h1 class="text-center text-4xl font-bold">
+					...we make it seamless.
+				</h1>
 			</div>
 
 			<div class="network-circle">
