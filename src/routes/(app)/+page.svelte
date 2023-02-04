@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AOS from 'aos';
-	import { TwitterIcon } from '$lib/icons';
+	import { SuccessIcon, TwitterIcon } from '$lib/icons';
 	import { onMount } from 'svelte';
 	import { supabase } from '$src/lib/supabaseClient';
 
@@ -19,10 +19,10 @@
 	const videoUrl: string = 'videos/hero-video.mov';
 	const currentYear: number = new Date().getFullYear();
 	const SNACKBAR_MESSAGES = {
-		DUP_EMAIL: 'That email is already added!',
+		DUP_EMAIL: 'We already got you added. Thanks!',
 		FAIL: 'Something went wrong!\nPlease try again!',
 		REGEX_FAIL: "That doesn't look right...\nPlease try again!",
-		SUCCESS: 'Email added - thank you!'
+		SUCCESS: "Thanks! We'll email you updates soon!"
 	};
 	let snackbarMessage: string = '';
 	let inputElement: HTMLInputElement;
@@ -35,7 +35,7 @@
 		email = email.toLocaleLowerCase();
 		// email address length & regex check
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
-			const res = await supabase.functions.invoke("subscribe-email", { body: { email } });
+			const res = await supabase.functions.invoke('subscribe-email', { body: { email } });
 			if (res.error) {
 				console.error(await res.error.context?.text());
 				isSubmitSuccessful = false;
@@ -47,7 +47,7 @@
 			} else {
 				isSubmitSuccessful = true;
 				snackbarMessage = SNACKBAR_MESSAGES.SUCCESS;
-				inputElement.value = "";
+				inputElement.value = '';
 			}
 		} else {
 			isSubmitSuccessful = false;
@@ -55,9 +55,9 @@
 		}
 		isSnackbarVisible = true;
 		isSubmitBtnDisabled = true;
-		setTimeout(() => { 
+		setTimeout(() => {
 			isSnackbarVisible = false;
-			isSubmitBtnDisabled = false; 
+			isSubmitBtnDisabled = false;
 		}, 5000);
 	};
 
@@ -73,11 +73,14 @@
 <main>
 	{#if isSnackbarVisible}
 		<div class="toast toast-center toast-top w-64 p-0 top-[24px] md:top-[40px]  z-50">
-			<div class={`
-				alert bg-white border-t-4 justify-center
-				${ isSubmitSuccessful ?  'border-green-500' : 'border-red-500' }
-			`}>
-				<div>
+			<div
+				class={`
+				alert justify-center rounded-[6px]
+				${isSubmitSuccessful ? 'bg-green-200' : 'bg-red-200'}
+			`}
+			>
+				<div class="flex items-center">
+					<img src={!isSubmitSuccessful ? SuccessIcon : ''} alt="toast icon" />
 					<p class="text-center font-medium">{snackbarMessage}</p>
 				</div>
 			</div>
@@ -140,17 +143,11 @@
 
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
 		<div class="flex flex-col items-center gap-4">
-			<p
-				class="text-xl md:text-2xl text-center"
-				data-aos="slide-right"
-				data-aos-offset="-100"
-			>
+			<p class="text-xl md:text-2xl text-center" data-aos="slide-right" data-aos-offset="-100">
 				Web3 is fragmented...
 			</p>
 			<div data-aos="fade-up">
-				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">
-					we make it seamless.
-				</h1>
+				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">we make it seamless.</h1>
 			</div>
 
 			<div class="network-circle">
@@ -182,7 +179,9 @@
 	<section class="sign-up-gradient px-6 md:px-10 py-9">
 		<div class="flex flex-col items-center" data-aos="fade-up">
 			<div class="flex flex-col gap-6 md:flex-row">
-				<h1 class="text-4xl md:text-6xl font-bold text-center">Join the PixFi community</h1>
+				<h1 class="text-4xl md:text-6xl font-bold text-center text-black">
+					Join the PixFi community
+				</h1>
 			</div>
 			<div
 				class="flex flex-col md:flex-row items-center gap-2 w-full max-w-md mt-2"
@@ -201,7 +200,7 @@
 					disabled={isSubmitBtnDisabled}
 					class={`
 						w-48 max-w-xs rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
-						${ isSubmitBtnDisabled ? 'text-gray-200' : 'text-white' }
+						${isSubmitBtnDisabled ? 'text-gray-200' : 'text-white'}
 					`}
 				>
 					Sign me up!
@@ -211,15 +210,17 @@
 	</section>
 
 	<footer class="py-3 bg-black">
-		<div class="flex justify-center items-center gap-3 text-white">
-			<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
-			<p>&copy; {currentYear} PixFi</p>
+		<div class="flex flex-col justify-center items-center gap-1">
+			<div class="flex justify-center items-center gap-3 text-white">
+				<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
+				<p>&copy; {currentYear} PixFi</p>
+			</div>
+			<p class="italic text-gray-200 text-xs">coming H2 2023</p>
 		</div>
 	</footer>
 </main>
 
 <style>
-
 	.hero::before {
 		content: '';
 		position: absolute;
@@ -230,27 +231,16 @@
 
 	.network-circle {
 		display: grid;
-		grid-template-columns: repeat(5, 50px);
-		grid-template-rows: repeat(6, 50px);
-		gap: 12px;
+		grid-template-columns: repeat(5, 37px);
+		grid-template-rows: repeat(6, 37px);
+		gap: 9px;
 		place-items: center;
 		position: relative;
-		width: 300px;
-		height: 300px;
-		margin: 64px;
+		width: 225px;
+		height: 225px;
+		margin: 48px;
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		border-radius: 50%;
-	}
-
-	@media screen and (min-width: 768px) {
-		.network-circle {
-			width: 600px;
-			height: 600px;
-			margin: 128px;
-			gap: 25px;
-			grid-template-columns: repeat(5, 100px);
-			grid-template-rows: repeat(6, 100px);
-		}
 	}
 
 	.network-circle-item-wrapper {
@@ -271,8 +261,8 @@
 	.network-circle-item-wrapper img.icon {
 		position: absolute;
 		aspect-ratio: 1/1;
-		width: 30px;
-		bottom: -40px;
+		width: 15px;
+		bottom: -20px;
 	}
 
 	.network-circle-item-wrapper:nth-of-type(1) {
@@ -340,7 +330,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 150px;
+		width: 100px;
 	}
 
 	.sign-up-gradient {
@@ -355,5 +345,41 @@
 
 	footer img {
 		width: 100px;
+	}
+
+	@media screen and (min-width: 400px) {
+		.network-circle {
+			width: 300px;
+			height: 300px;
+			margin: 64px;
+			gap: 12px;
+			grid-template-columns: repeat(5, 50px);
+			grid-template-rows: repeat(6, 50px);
+		}
+
+		.network-circle-item-wrapper img.icon {
+			width: 20px;
+			bottom: -30px;
+		}
+
+		.network-circle .pix-logo {
+			width: 150px;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		.network-circle {
+			width: 600px;
+			height: 600px;
+			margin: 128px;
+			gap: 25px;
+			grid-template-columns: repeat(5, 100px);
+			grid-template-rows: repeat(6, 100px);
+		}
+
+		.network-circle-item-wrapper img.icon {
+			width: 30px;
+			bottom: -40px;
+		}
 	}
 </style>
