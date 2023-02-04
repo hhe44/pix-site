@@ -204,7 +204,7 @@
 						${ isSubmitBtnDisabled ? 'text-gray-200' : 'text-white' }
 					`}
 				>
-					Join the hype
+					Sign me up!
 				</button>
 			</div>
 		</div>
