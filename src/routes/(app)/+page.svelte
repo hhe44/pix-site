@@ -10,7 +10,7 @@
 		{ icon: 'images/logos/BSC-Icon-White.svg', image: 'images/nfts/BSC-NFT.svg' },
 		{ icon: 'images/logos/Ethereum-Icon-White.svg', image: 'images/nfts/Ethereum-NFT.svg' },
 		{ icon: 'images/logos/Fantom-Icon-White.svg', image: 'images/nfts/Fantom-NFT.svg' },
-		{ icon: 'images/logos/Hedera-Icon-White.svg', image: 'images/nfts/Hedera-NFT.svg' },
+		{ icon: 'images/logos/Hedera-Icon-White.svg', image: 'images/nfts/Hedera-NFT-2.svg' },
 		{ icon: 'images/logos/Moonbeam-Icon-White.svg', image: 'images/nfts/Moonbeam-NFT.svg' },
 		{ icon: 'images/logos/Near-Icon-White.svg', image: 'images/nfts/Near-NFT.svg' },
 		{ icon: 'images/logos/Polygon-Icon-White.svg', image: 'images/nfts/Polygon-NFT.svg' },
