@@ -139,16 +139,16 @@
 	</section>
 
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
-		<div class="flex flex-col items-center gap-3">
+		<div class="flex flex-col items-center gap-4">
 			<p
-				class="text-xl md:text-xl text-center"
+				class="text-xl md:text-2xl text-center"
 				data-aos="slide-right"
 				data-aos-offset="-100"
 			>
 				Web3 is fragmentated.
 			</p>
-			<div class="max-w-xl" data-aos="fade-up">
-				<h1 class="text-center text-3xl md:text-5xl font-bold">
+			<div data-aos="fade-up">
+				<h1 class="text-center text-4xl lg:text-6xl font-bold">
 					...we make it seamless.
 				</h1>
 			</div>
