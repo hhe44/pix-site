@@ -101,14 +101,14 @@
 		>
 			<div class="flex flex-col">
 				<h1
-					class="text-4xl md:text-6xl font-bold text-center"
+					class="text-3xl sm:text-4xl md:text-6xl font-bold text-center"
 					data-aos="fade-up"
 					data-aos-delay="100"
 				>
 					All your favorite NFTs.
 				</h1>
 				<h1
-					class="text-4xl md:text-6xl font-bold text-center"
+					class="text-3xl sm:text-4xl md:text-6xl md:pt-2 font-bold text-center "
 					data-aos="fade-up"
 					data-aos-delay="400"
 				>
@@ -145,11 +145,11 @@
 				data-aos="slide-right"
 				data-aos-offset="-100"
 			>
-				Web3 is fragmentated.
+				Web3 is fragmented...
 			</p>
 			<div data-aos="fade-up">
-				<h1 class="text-center text-4xl lg:text-6xl font-bold">
-					...we make it seamless.
+				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">
+					we make it seamless.
 				</h1>
 			</div>
 
@@ -181,12 +181,12 @@
 
 	<section class="sign-up-gradient px-6 md:px-10 py-9">
 		<div class="flex flex-col items-center" data-aos="fade-up">
-			<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-6 md:flex-row">
 				<h1 class="text-4xl md:text-6xl font-bold text-center">Join the PixFi community</h1>
 			</div>
 			<div
-				class="flex items-center gap-2 w-full max-w-md mt-2"
-				data-aos="fade-up"
+				class="flex flex-col md:flex-row items-center gap-2 w-full max-w-md mt-2"
+				data-aos="fade-right"
 				data-aos-delay="300"
 			>
 				<input
@@ -237,7 +237,7 @@
 		position: relative;
 		width: 300px;
 		height: 300px;
-		margin: 112px 0;
+		margin: 64px;
 		border: 1px solid rgba(255, 255, 255, 0.3);
 		border-radius: 50%;
 	}
@@ -246,6 +246,7 @@
 		.network-circle {
 			width: 600px;
 			height: 600px;
+			margin: 128px;
 			gap: 25px;
 			grid-template-columns: repeat(5, 100px);
 			grid-template-rows: repeat(6, 100px);
