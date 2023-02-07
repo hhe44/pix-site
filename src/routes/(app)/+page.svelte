@@ -112,7 +112,7 @@
 					All your favorite NFTs.
 				</h1>
 				<h1
-					class="text-3xl sm:text-4xl md:text-6xl md:pt-2 font-bold text-center "
+					class="pt-2 sm:text-4xl md:text-6xl md:pt-3 text-3xl font-bold text-center "
 					data-aos="fade-up"
 					data-aos-delay="400"
 				>
@@ -143,7 +143,7 @@
 	</section>
 
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
-		<div class="flex flex-col items-center gap-4">
+		<div class="flex flex-col items-center gap-2 md:gap-3">
 			<p class="text-xl md:text-2xl text-center" data-aos="slide-right" data-aos-offset="-100">
 				Web3 is fragmented...
 			</p>
@@ -179,20 +179,20 @@
 
 	<section class="sign-up-gradient px-6 md:px-10 py-9">
 		<div class="flex flex-col items-center" data-aos="fade-up">
-			<div class="flex flex-col gap-6 md:flex-row">
+			<div class="flex flex-col">
 				<h1 class="text-4xl md:text-6xl font-bold text-center text-black">
-					Join the PixFi community
+					Join the PixFi community.
 				</h1>
 			</div>
 			<div
-				class="flex flex-col md:flex-row items-center gap-2 w-full max-w-md mt-2"
+				class="flex flex-col sm:flex-row items-center w-full max-w-md"
 				data-aos="fade-right"
 				data-aos-delay="300"
 			>
 				<input
 					bind:this={inputElement}
 					bind:value={email}
-					class="w-full"
+					class="w-full my-2 sm:my-3 sm:mr-3"
 					type="text"
 					placeholder="Enter your email"
 				/>
@@ -200,7 +200,7 @@
 					on:click={submitForm}
 					disabled={isSubmitBtnDisabled}
 					class={`
-						w-48 max-w-xs rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
+						w-full rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] sm:w-40
 						${isSubmitBtnDisabled ? 'text-gray-200' : 'text-white'}
 					`}
 				>

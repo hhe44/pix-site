@@ -64,7 +64,10 @@
 		</div>
 	{/if}
 	<header
-		class="flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 bg-transparent"
+		class="
+			flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 
+			bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]
+		"
 	>
 		<img class="w-28" src="images/pix/pix-logo-white.png" alt="Pix logo" />
 		<a href="https://twitter.com/pixfiio" rel="noreferrer" target="_blank"
@@ -72,17 +75,25 @@
 		>
 	</header>
 	<section class="hero h-[85vh] relative bg-black">
-		<div class="flex flex-col items-center gap-6 max-w-3xl relative z-10 text-white px-3">
+		<div
+			class="flex flex-col items-center gap-6 max-w-3xl relative z-10 text-white px-3"
+			data-aos="fade-up"
+		>
 			<div class="flex flex-col">
-				<h1 class="text-4xl md:text-6xl font-bold text-center">All your favorite NFTs.</h1>
-				<h1 class="text-4xl md:text-6xl font-bold text-center">All in one place.</h1>
-			</div>
-
-			<div class="max-w-lg">
-				<p class="text-center text-md font-medium md:text-lg">
-					PixFi is a frictionless multi-chain NFT aggregator, taking your NFT and DeFi experiece to
-					the next level.
-				</p>
+				<h1
+					class="text-3xl sm:text-4xl md:text-6xl font-bold text-center"
+					data-aos="fade-up"
+					data-aos-delay="100"
+				>
+					All your favorite NFTs.
+				</h1>
+				<h1
+					class="pt-2 sm:text-4xl md:text-6xl md:pt-3 text-3xl font-bold text-center "
+					data-aos="fade-up"
+					data-aos-delay="400"
+				>
+					All in one place.
+				</h1>
 			</div>
 		</div>
 
@@ -97,18 +108,21 @@
 	</section>
 
 	<section class="sign-up-gradient px-6 md:px-10 py-9">
-		<div class="flex flex-col items-center">
-			<div class="flex flex-col gap-6">
-				<h1 class="text-4xl md:text-6xl font-bold text-center">We're sorry to see you go!</h1>
-				<p class="text-center text-lg font-medium">
-					Unsubscribe from the latest developments from PixFi.
-				</p>
+		<div class="flex flex-col items-center" data-aos="fade-up">
+			<div class="flex flex-col">
+				<h1 class="text-4xl md:text-6xl font-bold text-center text-black">
+					Sorry to see you go!
+				</h1>
 			</div>
-			<div class="flex flex-col items-center gap-2 w-full max-w-md mt-2">
+			<div
+				class="flex flex-col sm:flex-row items-center w-full max-w-md"
+				data-aos="fade-right"
+				data-aos-delay="300"
+			>
 				<input
 					bind:this={inputElement}
 					bind:value={email}
-					class="w-full"
+					class="w-full my-2 sm:my-3 sm:mr-3"
 					type="text"
 					placeholder="Enter your email"
 				/>
@@ -116,20 +130,23 @@
 					on:click={submitForm}
 					disabled={isSubmitBtnDisabled}
 					class={`
-						w-full rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] 
-						${ isSubmitBtnDisabled ? 'text-gray-200' : 'text-white' }
+						w-full rounded-[6px] bg-black font-bold text-[14px] px-2 py-[10px] sm:w-40
+						${isSubmitBtnDisabled ? 'text-gray-200' : 'text-white'}
 					`}
 				>
-					Cancel my subscription
+					Unsubscribe
 				</button>
 			</div>
 		</div>
 	</section>
 
 	<footer class="py-3 bg-black">
-		<div class="flex justify-center items-center gap-3 text-white">
-			<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
-			<p>&copy; {currentYear} PixFi</p>
+		<div class="flex flex-col justify-center items-center gap-1">
+			<div class="flex justify-center items-center gap-3 text-white">
+				<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
+				<p>&copy; {currentYear} PixFi</p>
+			</div>
+			<p class="italic text-gray-200 text-xs">coming H2 2023</p>
 		</div>
 	</footer>
 </main>
