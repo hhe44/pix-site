@@ -74,7 +74,7 @@
 			><img src={TwitterIcon} alt="Twitter" /></a
 		>
 	</header>
-	<section class="hero h-[85vh] relative bg-black">
+	<section class="hero h-[85vh] relative bg-black z-0">
 		<div
 			class="flex flex-col items-center gap-6 max-w-3xl relative z-10 text-white px-3"
 			data-aos="fade-up"
