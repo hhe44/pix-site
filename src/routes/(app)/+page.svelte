@@ -148,7 +148,7 @@
 				Web3 is fragmented.
 			</p>
 			<div data-aos="fade-up">
-				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">we make it seamless.</h1>
+				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">We make it seamless.</h1>
 			</div>
 
 			<div class="network-circle">
