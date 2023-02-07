@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AOS from 'aos';
-	import { SuccessIcon, TwitterIcon } from '$lib/icons';
+	import { FailIcon, SuccessIcon, TwitterIcon } from '$lib/icons';
 	import { onMount } from 'svelte';
 	import { supabase } from '$src/lib/supabaseClient';
 
@@ -19,7 +19,7 @@
 	const videoUrl: string = 'videos/hero-video.mov';
 	const currentYear: number = new Date().getFullYear();
 	const SNACKBAR_MESSAGES = {
-		DUP_EMAIL: 'We already got you added. Thanks!',
+		DUP_EMAIL: 'We already got your email added. Thanks!',
 		FAIL: 'Something went wrong!\nPlease try again!',
 		REGEX_FAIL: "That doesn't look right...\nPlease try again!",
 		SUCCESS: "Thanks! We'll email you updates soon!"
@@ -38,10 +38,11 @@
 			const res = await supabase.functions.invoke('subscribe-email', { body: { email } });
 			if (res.error) {
 				console.error(await res.error.context?.text());
-				isSubmitSuccessful = false;
 				if (res.error.context?.status == 400) {
+					isSubmitSuccessful = true;
 					snackbarMessage = SNACKBAR_MESSAGES.DUP_EMAIL;
 				} else {
+					isSubmitSuccessful = false;
 					snackbarMessage = SNACKBAR_MESSAGES.FAIL;
 				}
 			} else {
@@ -75,12 +76,12 @@
 		<div class="toast toast-center toast-top w-64 p-0 top-[24px] md:top-[40px]  z-50">
 			<div
 				class={`
-				alert justify-center rounded-[6px]
-				${isSubmitSuccessful ? 'bg-green-200' : 'bg-red-200'}
-			`}
+					alert justify-center rounded-[6px]
+					${isSubmitSuccessful ? 'bg-green-200 text-green-600' : 'bg-red-200 text-red-600'}
+				`}
 			>
 				<div class="flex items-center">
-					<img src={!isSubmitSuccessful ? SuccessIcon : ''} alt="toast icon" />
+					<img src={isSubmitSuccessful ? SuccessIcon : FailIcon} alt="toast icon" />
 					<p class="text-center font-medium">{snackbarMessage}</p>
 				</div>
 			</div>

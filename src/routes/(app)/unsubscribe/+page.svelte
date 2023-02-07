@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TwitterIcon } from '$lib/icons';
+	import { FailIcon, SuccessIcon, TwitterIcon } from '$lib/icons';
 	import { supabase } from '$lib/supabaseClient';
 	const videoUrl: string = 'videos/hero-video.mp4';
 	const currentYear: number = new Date().getFullYear();
@@ -50,11 +50,14 @@
 <main>
 	{#if isSnackbarVisible}
 		<div class="toast toast-center toast-top w-64 p-0 top-[24px] md:top-[40px]  z-50">
-			<div class={`
-				alert bg-white border-t-4 justify-center
-				${ isSubmitSuccessful ?  'border-green-500' : 'border-red-500' }
-			`}>
-				<div>
+			<div
+				class={`
+					alert justify-center rounded-[6px]
+					${isSubmitSuccessful ? 'bg-green-200 text-green-600' : 'bg-red-200 text-red-600'}
+				`}
+			>
+				<div class="flex items-center">
+					<img src={isSubmitSuccessful ? SuccessIcon : FailIcon} alt="toast icon" />
 					<p class="text-center font-medium">{snackbarMessage}</p>
 				</div>
 			</div>
