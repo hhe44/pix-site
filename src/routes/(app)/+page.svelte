@@ -109,7 +109,7 @@
 					data-aos="fade-up"
 					data-aos-delay="100"
 				>
-					All your favorite NFTs.
+					Your favorite NFTs.
 				</h1>
 				<h1
 					class="pt-2 sm:text-4xl md:text-6xl md:pt-3 text-3xl font-bold text-center "
@@ -145,7 +145,7 @@
 	<section class="px-3 md:px-10 py-9 bg-black text-white">
 		<div class="flex flex-col items-center gap-2 md:gap-3">
 			<p class="text-xl md:text-2xl text-center" data-aos="slide-right" data-aos-offset="-100">
-				Web3 is fragmented...
+				Web3 is fragmented.
 			</p>
 			<div data-aos="fade-up">
 				<h1 class="text-center text-3xl sm:text-4xl md:text-6xl font-bold">we make it seamless.</h1>
