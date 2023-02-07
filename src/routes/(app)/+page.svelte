@@ -5,16 +5,16 @@
 	import { supabase } from '$src/lib/supabaseClient';
 
 	const networks: Array<{ icon: string; image: string }> = [
-		{ icon: 'images/logos/Algorand-Icon-White.svg', image: 'images/nfts/Algorand-NFT.svg' },
-		{ icon: 'images/logos/Avalanche-Icon-White.svg', image: 'images/nfts/Avalanche-NFT.svg' },
-		{ icon: 'images/logos/BSC-Icon-White.svg', image: 'images/nfts/BSC-NFT.svg' },
-		{ icon: 'images/logos/Ethereum-Icon-White.svg', image: 'images/nfts/Ethereum-NFT.svg' },
-		{ icon: 'images/logos/Fantom-Icon-White.svg', image: 'images/nfts/Fantom-NFT.svg' },
-		{ icon: 'images/logos/Hedera-Icon-White.svg', image: 'images/nfts/Hedera-NFT-2.svg' },
-		{ icon: 'images/logos/Moonbeam-Icon-White.svg', image: 'images/nfts/Moonbeam-NFT.svg' },
-		{ icon: 'images/logos/Near-Icon-White.svg', image: 'images/nfts/Near-NFT.svg' },
-		{ icon: 'images/logos/Polygon-Icon-White.svg', image: 'images/nfts/Polygon-NFT.svg' },
-		{ icon: 'images/logos/Solana-Icon-White.svg', image: 'images/nfts/Solana-NFT.svg' }
+		{ icon: 'images/logos/Algorand-Icon-White.svg', image: 'images/nfts/Algorand-NFT.png' },
+		{ icon: 'images/logos/Avalanche-Icon-White.svg', image: 'images/nfts/Avalanche-NFT.png' },
+		{ icon: 'images/logos/BSC-Icon-White.svg', image: 'images/nfts/BSC-NFT.png' },
+		{ icon: 'images/logos/Ethereum-Icon-White.svg', image: 'images/nfts/Ethereum-NFT.jpeg' },
+		{ icon: 'images/logos/Fantom-Icon-White.svg', image: 'images/nfts/Fantom-NFT.png' },
+		{ icon: 'images/logos/Hedera-Icon-White.svg', image: 'images/nfts/Hedera-NFT.jpeg' },
+		{ icon: 'images/logos/Moonbeam-Icon-White.svg', image: 'images/nfts/Moonbeam-NFT.png' },
+		{ icon: 'images/logos/Near-Icon-White.svg', image: 'images/nfts/Near-NFT.png' },
+		{ icon: 'images/logos/Polygon-Icon-White.svg', image: 'images/nfts/Polygon-NFT.jpeg' },
+		{ icon: 'images/logos/Solana-Icon-White.svg', image: 'images/nfts/Solana-NFT.png' }
 	];
 	const videoUrl: string = 'videos/hero-video.mov';
 	const currentYear: number = new Date().getFullYear();
