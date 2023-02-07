@@ -94,7 +94,7 @@
 		"
 	>
 		<img class="w-28" src="images/pix/pix-logo-white.png" alt="Pix logo" />
-		<a href="https://twitter.com/pixfiio" rel="noreferrer" target="_blank"
+		<a href="https://twitter.com/PixFi_official" rel="noreferrer" target="_blank"
 			><img src={TwitterIcon} alt="Twitter" /></a
 		>
 	</header>
