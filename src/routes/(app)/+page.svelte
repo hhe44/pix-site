@@ -214,7 +214,7 @@
 		<div class="flex flex-col justify-center items-center gap-1">
 			<div class="flex justify-center items-center gap-3 text-white">
 				<img src="images/pix/pix-logo-white.png" alt="Pix logo" />
-				<p>&copy; {currentYear} PixFi</p>
+				<p>&copy; {currentYear} PixLabs</p>
 			</div>
 			<p class="italic text-gray-200 text-xs">coming H2 2023</p>
 		</div>
