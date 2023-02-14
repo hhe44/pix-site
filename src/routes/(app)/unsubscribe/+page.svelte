@@ -18,6 +18,12 @@
 	
 	const submitForm = async () => {
 		email = email.toLocaleLowerCase();
+		// Regex check for XSS attempts - not perfect solution but it'll do
+		if (/<|>|\(|\)|=|script|=|img|src|onerror|\//.test(email)) {
+			email = "";
+			console.error("Please contact support@pixfi.io for assistance");
+			return;
+		}
 		// email address length & regex check
 		if (email.length < 255 && /\S+@\S+\.\S+/.test(email)) {
 			const res = await supabase.functions.invoke("unsubscribe-email", { body: { email } });
