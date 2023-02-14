@@ -123,7 +123,7 @@
 					bind:this={inputElement}
 					bind:value={email}
 					class="w-full my-2 sm:my-3 sm:mr-3"
-					type="text"
+					type="email"
 					placeholder="Enter your email"
 				/>
 				<button

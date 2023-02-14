@@ -90,7 +90,7 @@
 	<header
 		class="
 			flex justify-between items-center fixed z-10 w-full px-3 md:px-10 py-3 
-			bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0)]
+			bg-gradient-to-b from-[rgba(0,0,0,1)] via-[rgba(0,0,0,0.3)] to-[rgba(0,0,0,0)]
 		"
 	>
 		<img class="w-28" src="images/pix/pix-logo-white.png" alt="Pix logo" />
@@ -193,7 +193,7 @@
 					bind:this={inputElement}
 					bind:value={email}
 					class="w-full my-2 sm:my-3 sm:mr-3"
-					type="text"
+					type="email"
 					placeholder="Enter your email"
 				/>
 				<button
