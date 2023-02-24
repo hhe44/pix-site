@@ -1,25 +1,24 @@
-@use 'sass:color';
-
-@use '@material/theme/color-palette';
-
-// Svelte Colors!
+// MDC Color Palette:   https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/_color-palette.scss
+@use '@material/theme/color-palette' as palette;
+// MDC Theme:           https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/README.md
 @use '@material/theme/index' as theme with (
-  $primary: #ff3e00,
-  $secondary: #676778,
-  $surface: #fff,
-  $background: #fff,
-  $error: color-palette.$red-900
+	$primary: #ff3e00,
+	$secondary: #676778,
+	$surface: #fff,
+	$background: #fff,
+	$error: palette.$red-900
 );
+
+$font-weight-light:     300;
+$font-weight-regular:   400;
+$font-weight-medium:    500;
+$font-weight-semibold:  600;
+$font-weight-bold:      700;
 
 html,
 body {
-  background-color: theme.$surface;
-  color: theme.$on-surface;
-}
-
-a {
-  color: #40b3ff;
-}
-a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+	font-family: 'Inter';
+  font-weight: $font-weight-regular;
+	background-color: theme.$surface;
+	color: theme.$on-surface;
 }
