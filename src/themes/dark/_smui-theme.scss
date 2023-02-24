@@ -9,9 +9,30 @@
 	$error: palette.$red-700
 );
 
+// When naming new vars, consider how tailwind does naming on their docs
+// https://tailwindcss.com/docs
+
+// font-sizes
+$font-size-sm: 					0.875rem;
+$font-size-base: 				1rem;
+$font-size-lg: 					1.125rem;
+$font-size-xl: 					1.25rem;
+
+// font-weights
+$font-weight-light:     300;
+$font-weight-normal:   	400;
+$font-weight-medium:    500;
+$font-weight-semibold:  600;
+$font-weight-bold:      700;
+
+// Modify theme styles below
 html,
 body {
-	font-family: 'Inter';
+	padding: 0;
+	margin: 0;
 	background-color: theme.$surface;
 	color: theme.$on-surface;
+	font-family: 'Inter';
+  font-weight: $font-weight-normal;
 }
+

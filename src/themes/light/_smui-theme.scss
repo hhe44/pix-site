@@ -1,24 +1,71 @@
-// MDC Color Palette:   https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/_color-palette.scss
+// MDC Color Palette:
+// https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/_color-palette.scss
 @use '@material/theme/color-palette' as palette;
-// MDC Theme:           https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/README.md
+
+// MDC Theme:
+// https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-theme/README.md
 @use '@material/theme/index' as theme with (
-	$primary: #ff3e00,
-	$secondary: #676778,
+	$primary: #fff,
+	$secondary: #ff3e00,
 	$surface: #fff,
 	$background: #fff,
+	$on-primary: #000,
+	$on-surface: #000,
 	$error: palette.$red-900
 );
 
-$font-weight-light:     300;
-$font-weight-regular:   400;
-$font-weight-medium:    500;
-$font-weight-semibold:  600;
-$font-weight-bold:      700;
+@use '@material/textfield';
+.custom-text-field {
+  @include textfield.label-color(blue);
+}
+
+// top-app-bar
+// SMUI: https://sveltematerialui.com/demo/top-app-bar/
+// MDC: https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-top-app-bar/README.md
+$nav-padding-desktop: 0.5rem 1.5rem;
+
+// vars for elements
+// breakpoints
+$breakpoint-mobile: 360px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1366px;
+$breakpoint-desktop: 1920px;
+
+// font-sizes
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+
+// font-weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Modify theme styles HERE
+.mdc-button__label {
+	padding: 0;
+	text-transform: none;
+	letter-spacing: 0.1px;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-semibold;
+}
+.mdc-top-app-bar {
+	padding: $nav-padding-desktop;
+	.mdc-button {
+		filter: invert(100%);
+		padding: 1.25rem 1rem;
+	}
+}
 
 html,
 body {
-	font-family: 'Inter';
-  font-weight: $font-weight-regular;
+	padding: 0;
+	margin: 0;
 	background-color: theme.$surface;
 	color: theme.$on-surface;
+	font-family: 'Inter';
+	font-weight: $font-weight-normal;
 }
